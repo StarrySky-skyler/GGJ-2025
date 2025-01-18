@@ -3,7 +3,7 @@
 // @email: xiaoyuesun915@gmail.com
 // @creationDate: 2025/01/18 10:01
 // @version: 1.0
-// @description:
+// @description: 从WeatherManager分离的天气处理类
 // ********************************************************************************
 
 using System;

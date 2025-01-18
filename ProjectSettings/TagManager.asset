@@ -6,6 +6,7 @@ TagManager:
   tags:
   - WeatherHurricane
   - WeatherFog
+  - WeatherLighning
   layers:
   - Default
   - TransparentFX

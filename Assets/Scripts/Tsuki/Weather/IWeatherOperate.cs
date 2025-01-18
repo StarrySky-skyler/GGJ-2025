@@ -3,7 +3,7 @@
 // @email: xiaoyuesun915@gmail.com
 // @creationDate: 2025/01/18 12:01
 // @version: 1.0
-// @description:
+// @description: 当前天气季节操作接口
 // ********************************************************************************
 
 using System;

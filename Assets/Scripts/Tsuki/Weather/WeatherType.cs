@@ -3,7 +3,7 @@
 // @email: xiaoyuesun915@gmail.com
 // @creationDate: 2025/01/18 10:01
 // @version: 1.0
-// @description:
+// @description: 天气季节枚举
 // ********************************************************************************
 
 namespace Tsuki.Weather

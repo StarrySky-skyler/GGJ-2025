@@ -3,7 +3,7 @@
 // @email: xiaoyuesun915@gmail.com
 // @creationDate: 2025/01/18 11:01
 // @version: 1.0
-// @description:
+// @description: 飓风物体挂载脚本
 // ********************************************************************************
 
 using System;

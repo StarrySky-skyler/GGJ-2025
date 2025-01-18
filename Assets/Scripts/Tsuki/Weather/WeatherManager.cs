@@ -3,7 +3,7 @@
 // @email: xiaoyuesun915@gmail.com
 // @creationDate: 2025/01/18 10:01
 // @version: 1.0
-// @description:
+// @description: 天气管理器单例
 // ********************************************************************************
 
 using System;
@@ -21,6 +21,7 @@ namespace Tsuki.Weather
         public static WeatherManager Instance { get; private set; }
 
         public GameObject fog;      // 雾霾
+        public float lightningWarningTime; // 闪电预警时间
         
         public ObservableCollection<WeatherType> CurrentWeathers { get; private set; }
 
