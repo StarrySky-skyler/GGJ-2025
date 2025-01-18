@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightningWarningTime: 2
   hailSpeed: 6.1
-  hurricaneDuration: 0
-  rainDuration: 5
-  fogDuration: 2
-  lightningDuration: 0
-  hailDuration: 0
-  seasonDuration: 20
+  hurricaneDuration: 3
+  rainDuration: 6.38
+  fogDuration: 5
+  lightningDuration: 3.72
+  hailDuration: 3.83
+  seasonDuration: 14.9
   weatherAddInterval: 3
   springData: {fileID: 11400000, guid: c06c2eb7bc08ce941966ff6627ac1bde, type: 2}
   summerData: {fileID: 11400000, guid: c82a034d116831940aa67ae3c517823c, type: 2}

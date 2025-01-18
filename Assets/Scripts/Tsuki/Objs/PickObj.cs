@@ -12,7 +12,7 @@ using UnityEngine;
 
 namespace Tsuki.Objs
 {
-    public class Flower : MonoBehaviour
+    public class PickObj : MonoBehaviour
     {
         public float speed;
         

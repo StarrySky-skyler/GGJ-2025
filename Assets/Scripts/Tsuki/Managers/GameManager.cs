@@ -80,6 +80,7 @@ namespace Tsuki.Managers
                 switch (newWeather)
                 {
                     case WeatherType.Sunny:
+                        // WeatherManager.Instance.SetWeatherSunny();
                         break;
                     case WeatherType.Hurricane:
                         duration = WeatherManager.Instance.WeatherData.hurricaneDuration;

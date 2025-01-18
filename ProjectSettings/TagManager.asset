@@ -9,6 +9,8 @@ TagManager:
   - WeatherLighning
   - WeatherHail
   - Flower
+  - Leaf
+  - Snow
   layers:
   - Default
   - TransparentFX
