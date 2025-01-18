@@ -13,8 +13,15 @@ namespace Tsuki.Objs
 {
     public class FengChe : MonoBehaviour
     {
-        private bool _triggered;
+        public float lifeTime;
         
+        private bool _triggered;
+
+        private void Start()
+        {
+            Destroy(gameObject, lifeTime);
+        }
+
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag("Player") && !_triggered)

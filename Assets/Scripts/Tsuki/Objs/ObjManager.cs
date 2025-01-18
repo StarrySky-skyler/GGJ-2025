@@ -19,24 +19,23 @@ namespace Tsuki.Objs
     {
         public static ObjManager Instance { get; private set; }
 
-        public bool AllowSpawnHurricane { get; set; }       // 是否生成飓风
-        public bool AllowSpawnHail { get; set; }        // 是否生成冰雹
-        public bool AllowSpawnLightning { get; set; }       // 是否生成闪电
+        public bool AllowSpawnHurricane { get; set; } // 是否生成飓风
+        public bool AllowSpawnHail { get; set; } // 是否生成冰雹
+        public bool AllowSpawnLightning { get; set; } // 是否生成闪电
 
-        [Header("预制体")] 
-        public GameObject flower;
+        [Header("预制体")] public GameObject flower;
         public GameObject leaf;
         public GameObject snow;
         public GameObject hurricane;
         public GameObject hail;
         public GameObject lightning;
-        
-        [Header("配置数据")]
-        [Range(1F, 10F)]
-        public float spawnInterval;     // 季节特性物生成间隔
-        
+        public GameObject fengChe;
+
+        [Header("配置数据")] [Range(1F, 10F)] public float spawnInterval; // 季节特性物生成间隔
+        [Range(1F, 10F)] public float fengCheSpawnInterval; // 风车生成间隔
+
         private float _timer;
-        
+
         private void Awake()
         {
             Instance = this;
@@ -47,6 +46,7 @@ namespace Tsuki.Objs
             StartCoroutine(DelaySpawnHurricane());
             StartCoroutine(DelaySpawnHail());
             StartCoroutine(DelaySpawnLightning());
+            StartCoroutine(DelaySpawnFengChe());
         }
 
         private void Update()
@@ -81,6 +81,7 @@ namespace Tsuki.Objs
                     yield return null;
                     continue;
                 }
+
                 SpawnHurricane();
                 yield return new WaitForSeconds(WeatherManager.Instance.WeatherData.hurricaneSpawnInterval);
             }
@@ -95,6 +96,7 @@ namespace Tsuki.Objs
                     yield return null;
                     continue;
                 }
+
                 SpawnHail();
                 yield return new WaitForSeconds(WeatherManager.Instance.WeatherData.hailSpawnInterval);
             }
@@ -109,6 +111,7 @@ namespace Tsuki.Objs
                     yield return null;
                     continue;
                 }
+
                 SpawnLightning();
                 yield return new WaitForSeconds(WeatherManager.Instance.WeatherData.lightningSpawnInterval);
             }
@@ -119,13 +122,13 @@ namespace Tsuki.Objs
         /// </summary>
         /// <param name="isPick">是否为季节特征物</param>
         /// <returns></returns>
-        private static Vector3 GetScreenRandomPos(bool isPick=true)
+        private static Vector3 GetScreenRandomPos(bool isPick = true)
         {
             float screenWidth = Screen.width;
             float screenHeight = Screen.height;
             if (isPick)
             {
-                int edge = Random.Range(0, 2);      // 0为上边缘，1为右边缘
+                int edge = Random.Range(0, 2); // 0为上边缘，1为右边缘
                 Vector3 randomPos = edge switch
                 {
                     0 => new Vector3(Random.Range(screenWidth / 2, screenWidth), screenHeight, 0),
@@ -203,6 +206,21 @@ namespace Tsuki.Objs
             Vector3 pos = GetRandomPos();
             Instantiate(lightning, pos, Quaternion.identity);
             AudioManager.Instance.PlaySoundEffects(WeatherType.Lightning);
+        }
+
+        private void SpawnFengChe()
+        {
+            Vector3 pos = GetRandomPos();
+            Instantiate(fengChe, pos, Quaternion.identity);
+        }
+
+        private IEnumerator DelaySpawnFengChe()
+        {
+            while (true)
+            {
+                yield return new WaitForSeconds(fengCheSpawnInterval);
+                SpawnFengChe();
+            }
         }
     }
 }

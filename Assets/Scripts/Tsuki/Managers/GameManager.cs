@@ -18,6 +18,8 @@ namespace Tsuki.Managers
     {
         public static GameManager Instance { get; private set; }
 
+        public bool Success => Score >= 666;        // 是否成功触发彩蛋
+
         /// <summary>
         /// 分数
         /// </summary>
