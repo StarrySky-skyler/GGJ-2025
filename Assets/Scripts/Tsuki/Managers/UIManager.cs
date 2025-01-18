@@ -67,8 +67,8 @@ namespace Tsuki.Managers
         /// </summary>
         private void UpdateWeatherUI()
         {
-            txtWeather.text = "天气预报：接下来预计是\n";
-            if (WeatherManager.Instance.CurrentWeathers.Count == 0) txtWeather.text += "晴天";
+            txtWeather.text = "天气预报";
+            if (WeatherManager.Instance.CurrentWeathers.Count == 0) txtWeather.text += "\n晴天";
             else
             {
                 foreach (WeatherType weather in WeatherManager.Instance.CurrentWeathers)
@@ -76,19 +76,19 @@ namespace Tsuki.Managers
                     switch (weather)
                     {
                         case WeatherType.Hurricane:
-                            txtWeather.text += " 飓风";
+                            txtWeather.text += "\n飓风";
                             break;
                         case WeatherType.Rainy:
-                            txtWeather.text += " 雨天";
+                            txtWeather.text += "\n雨天";
                             break;
                         case WeatherType.Fog:
-                            txtWeather.text += " 大雾";
+                            txtWeather.text += "\n大雾";
                             break;
                         case WeatherType.Lightning:
-                            txtWeather.text += " 雷电";
+                            txtWeather.text += "\n雷电";
                             break;
                         case WeatherType.Hail:
-                            txtWeather.text += " 冰雹";
+                            txtWeather.text += "\n冰雹";
                             break;
                     }
                 }
