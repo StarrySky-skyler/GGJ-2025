@@ -88,6 +88,21 @@ namespace Tsuki.Objs
             Object.Instantiate(_objManager.tengWan, pos, Quaternion.identity);
         }
 
+        private void SpawnBird()
+        {
+            Vector3 pos = _randomPos.GetRandomRightPos();
+            Object.Instantiate(_objManager.bird, pos, Quaternion.identity);
+            AudioManager.Instance.PlaySoundEffects(WeatherType.Hurricane);
+        }
+
+        public IEnumerator DelaySpawnBird()
+        {
+            while (true)
+            {
+                yield return new WaitForSeconds(_objManager.birdSpawnInterval);
+                SpawnBird();
+            }
+        }
 
         public IEnumerator DelaySpawnTengWan()
         {

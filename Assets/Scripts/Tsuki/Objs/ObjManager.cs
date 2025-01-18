@@ -27,10 +27,12 @@ namespace Tsuki.Objs
         public GameObject lightning;
         public GameObject fengChe;
         public GameObject tengWan;
+        public GameObject bird;
 
         [Header("配置数据")] [Range(1F, 10F)] public float spawnInterval; // 季节特性物生成间隔
         [Range(1F, 10F)] public float fengCheSpawnInterval; // 风车生成间隔
         [Range(1F, 10F)] public float tengWanSpawnInterval; // 藤蔓生成间隔
+        [Range(1F, 10F)] public float birdSpawnInterval; // 藤蔓生成间隔
 
         private float _timer;
         private RandomPos _randomPos;
@@ -50,6 +52,7 @@ namespace Tsuki.Objs
             StartCoroutine(_objSpawner.DelaySpawnLightning());
             StartCoroutine(_objSpawner.DelaySpawnFengChe());
             StartCoroutine(_objSpawner.DelaySpawnTengWan());
+            StartCoroutine(_objSpawner.DelaySpawnBird());
         }
 
         private void Update()
