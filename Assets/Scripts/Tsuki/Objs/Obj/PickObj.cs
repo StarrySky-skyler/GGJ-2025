@@ -12,7 +12,7 @@ using UnityEngine;
 
 namespace Tsuki.Objs
 {
-    public class PickObj : MonoBehaviour
+    public class PickObj : AutoDestoryObj
     {
         public float speed;
         
@@ -23,10 +23,10 @@ namespace Tsuki.Objs
             _rb2D = GetComponent<Rigidbody2D>();
         }
 
-        private void Start()
+        protected override void Start()
         {
             _rb2D.velocity = new Vector2(-1f, -1f) * speed;
-            Destroy(gameObject, 10f);
+            base.Start();
         }
 
         private void OnTriggerEnter2D(Collider2D other)

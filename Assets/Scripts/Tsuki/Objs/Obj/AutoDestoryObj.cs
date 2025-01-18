@@ -1,7 +1,7 @@
 ﻿// ********************************************************************************
 // @author: Starry Sky
 // @email: xiaoyuesun915@gmail.com
-// @creationDate: 2025/01/18 22:01
+// @creationDate: 2025/01/18 23:01
 // @version: 1.0
 // @description:
 // ********************************************************************************
@@ -11,24 +11,13 @@ using UnityEngine;
 
 namespace Tsuki.Objs
 {
-    public class FengChe : MonoBehaviour
+    public class AutoDestoryObj : MonoBehaviour
     {
         public float lifeTime;
-        
-        private bool _triggered;
 
-        private void Start()
+        protected virtual void Start()
         {
             Destroy(gameObject, lifeTime);
-        }
-
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.CompareTag("Player") && !_triggered)
-            {
-                _triggered = true;
-                // TODO: 触碰风车，玩家加速
-            }
         }
     }
 }
