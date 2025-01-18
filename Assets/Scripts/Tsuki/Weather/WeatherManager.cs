@@ -22,7 +22,9 @@ namespace Tsuki.Weather
 
         public Weather_SO WeatherData { get; private set; }
 
+        [Header("预制体")]
         public GameObject fog;      // 雾霾
+        public ParticleSystem rain;     // 雨
         
         public ObservableCollection<WeatherType> CurrentWeathers { get; private set; }
 
@@ -169,6 +171,7 @@ namespace Tsuki.Weather
             // 初始化天气
             CurrentWeathers = new ObservableCollection<WeatherType>();
             fog.SetActive(false);
+            rain.Stop();
             WeatherData = Resources.Load<Weather_SO>("Configs/WeatherConfig");
         }
 

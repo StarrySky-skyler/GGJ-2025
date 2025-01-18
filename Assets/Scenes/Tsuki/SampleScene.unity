@@ -174,6 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fog: {fileID: 1139727961}
+  rain: {fileID: 2062680279}
 --- !u!114 &451799385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -556,7 +557,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.5597087, g: 0.6289307, b: 0.6277245, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1108,6 +1109,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1724303795}
   m_CullTransparentMesh: 1
+--- !u!198 &2062680279 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2362079525724871021, guid: 384a8558bf481764c8a81b2041f0621f, type: 3}
+  m_PrefabInstance: {fileID: 3322976340038813919}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3009005393260084072
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1222,6 +1228,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bd6c9c205342d0408692e3b27513a06, type: 3}
+--- !u!1001 &3322976340038813919
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1337836233603271690, guid: 384a8558bf481764c8a81b2041f0621f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1337836233603271690, guid: 384a8558bf481764c8a81b2041f0621f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1337836233603271690, guid: 384a8558bf481764c8a81b2041f0621f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1337836233603271690, guid: 384a8558bf481764c8a81b2041f0621f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1337836233603271690, guid: 384a8558bf481764c8a81b2041f0621f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1337836233603271690, guid: 384a8558bf481764c8a81b2041f0621f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1337836233603271690, guid: 384a8558bf481764c8a81b2041f0621f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1337836233603271690, guid: 384a8558bf481764c8a81b2041f0621f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1337836233603271690, guid: 384a8558bf481764c8a81b2041f0621f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1337836233603271690, guid: 384a8558bf481764c8a81b2041f0621f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821660578479659790, guid: 384a8558bf481764c8a81b2041f0621f, type: 3}
+      propertyPath: m_Name
+      value: Rain
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821660578479659790, guid: 384a8558bf481764c8a81b2041f0621f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 384a8558bf481764c8a81b2041f0621f, type: 3}
 --- !u!1001 &6524535415561294855
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1499,7 +1566,8 @@ SceneRoots:
   - {fileID: 888794708}
   - {fileID: 1493653616}
   - {fileID: 7287487972439515192}
-  - {fileID: 451799383}
   - {fileID: 6524535415561294855}
   - {fileID: 6799259402599344854}
   - {fileID: 3009005393260084072}
+  - {fileID: 3322976340038813919}
+  - {fileID: 451799383}

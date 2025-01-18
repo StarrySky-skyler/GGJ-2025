@@ -76,6 +76,10 @@ namespace Tsuki.Managers
             {
                 yield return new WaitForSeconds(WeatherManager.Instance.WeatherData.weatherAddInterval);
                 WeatherType newWeather = WeatherManager.Instance.GetRandomWeather();
+                while (WeatherManager.Instance.CurrentWeathers.Contains(newWeather))
+                {
+                    newWeather = WeatherManager.Instance.GetRandomWeather();
+                }
                 float duration = UnityEngine.Random.Range(3F, 10F);
                 switch (newWeather)
                 {

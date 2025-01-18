@@ -36,6 +36,7 @@ namespace Tsuki.Weather
                 case WeatherType.Rainy:
                     Debug.Log("处理添加雨天");
                     // TODO: 使向上操作变得困难，按两次w等价于一次w
+                    SWeatherManager.rain.Play();
                     break;
                 case WeatherType.Fog:
                     Debug.Log("处理添加雾霾天气");
@@ -69,6 +70,7 @@ namespace Tsuki.Weather
                     break;
                 case WeatherType.Rainy:
                     Debug.Log("处理移除雨天");
+                    SWeatherManager.rain.Stop();
                     break;
                 case WeatherType.Fog:
                     Debug.Log("处理移除雾霾天气");
