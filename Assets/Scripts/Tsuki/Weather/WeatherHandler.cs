@@ -9,6 +9,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Tsuki.Managers;
+using Tsuki.Objs;
 using UnityEngine;
 
 namespace Tsuki.Weather
@@ -32,11 +34,13 @@ namespace Tsuki.Weather
             {
                 case WeatherType.Hurricane:
                     Debug.Log("处理添加飓风天气");
+                    ObjManager.Instance.AllowSpawnHurricane = true;
                     break;
                 case WeatherType.Rainy:
                     Debug.Log("处理添加雨天");
                     // TODO: 使向上操作变得困难，按两次w等价于一次w
                     SWeatherManager.rain.Play();
+                    AudioManager.Instance.PlaySoundEffects(WeatherType.Rainy);
                     break;
                 case WeatherType.Fog:
                     Debug.Log("处理添加雾霾天气");
@@ -45,10 +49,13 @@ namespace Tsuki.Weather
                 case WeatherType.Lightning:
                     Debug.Log("处理添加雷电天气");
                     // TODO: 范围伤害
+                    ObjManager.Instance.AllowSpawnLightning = true;
                     break;
                 case WeatherType.Hail:
                     Debug.Log("处理添加冰雹天气");
                     // TODO: 单体伤害
+                    ObjManager.Instance.AllowSpawnHail = true;
+                    AudioManager.Instance.PlaySoundEffects(WeatherType.Hail);
                     break;
                 default:
                     Debug.LogError($"添加未知天气类型{weatherType.ToString()}");
@@ -67,10 +74,12 @@ namespace Tsuki.Weather
             {
                 case WeatherType.Hurricane:
                     Debug.Log("处理移除飓风天气");
+                    ObjManager.Instance.AllowSpawnHurricane = false;
                     break;
                 case WeatherType.Rainy:
                     Debug.Log("处理移除雨天");
                     SWeatherManager.rain.Stop();
+                    AudioManager.Instance.StopWeatherSoundEffects();
                     break;
                 case WeatherType.Fog:
                     Debug.Log("处理移除雾霾天气");
@@ -78,9 +87,12 @@ namespace Tsuki.Weather
                     break;
                 case WeatherType.Lightning:
                     Debug.Log("处理移除雷电天气");
+                    ObjManager.Instance.AllowSpawnLightning = false;
                     break;
                 case WeatherType.Hail:
                     Debug.Log("处理移除冰雹天气");
+                    ObjManager.Instance.AllowSpawnHail = false;
+                    AudioManager.Instance.StopWeatherSoundEffects();
                     break;
                 default:
                     Debug.LogError($"移除未知天气类型{weatherType.ToString()}");

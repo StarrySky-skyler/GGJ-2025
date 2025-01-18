@@ -76,7 +76,7 @@ namespace Tsuki.Managers
                     break;
                 case WeatherType.Rainy:
                     clip = Resources.Load<AudioClip>("AudioClips/SoundEffects/雨");
-                    soundEffectAudioSource.PlayOneShot(clip);
+                    weatherAudioSource.PlayOneShot(clip);
                     break;
                 case WeatherType.Lightning:
                     clip = Resources.Load<AudioClip>("AudioClips/SoundEffects/闪电");
@@ -84,9 +84,17 @@ namespace Tsuki.Managers
                     break;
                 case WeatherType.Hail:
                     clip = Resources.Load<AudioClip>("AudioClips/SoundEffects/冰雹");
-                    soundEffectAudioSource.PlayOneShot(clip);
+                    weatherAudioSource.PlayOneShot(clip);
                     break;
             }
+        }
+
+        /// <summary>
+        /// 停止音效
+        /// </summary>
+        public void StopWeatherSoundEffects()
+        {
+            weatherAudioSource.Stop();
         }
     }
 }

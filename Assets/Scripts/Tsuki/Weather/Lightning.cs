@@ -39,6 +39,11 @@ namespace Tsuki.Weather
             _warningArea = transform.Find("WarnArea").gameObject;
         }
 
+        private void Start()
+        {
+            Destroy(gameObject, WeatherManager.Instance.WeatherData.lightningDuration);
+        }
+
         private void Update()
         {
             _timer += Time.deltaTime;

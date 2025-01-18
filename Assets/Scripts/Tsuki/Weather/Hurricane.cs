@@ -13,6 +13,21 @@ namespace Tsuki.Weather
 {
     public class Hurricane : MonoBehaviour
     {
+        public float speed;
+        
+        private Rigidbody2D _rigidbody2D;
+
+        private void Awake()
+        {
+            _rigidbody2D = GetComponent<Rigidbody2D>();
+        }
+
+        private void Start()
+        {
+            _rigidbody2D.velocity = new Vector2(-speed, 0);
+            Destroy(gameObject, WeatherManager.Instance.WeatherData.hurricaneDuration);
+        }
+
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (!other.CompareTag("Player")) return;

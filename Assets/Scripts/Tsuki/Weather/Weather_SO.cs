@@ -24,8 +24,12 @@ namespace Tsuki.Weather
         [Range(1F, 10F)] public float lightningDuration;     // 雷持续时间
         [Range(1F, 10F)] public float hailDuration;     // 冰雹持续时间
         [Range(3F, 30F)] public float seasonDuration;       // 季节持续时间
+        
         [Header("天气添加间隔")]
         [Range(1F, 10F)] public float weatherAddInterval;       // 天气添加间隔
+        [Range(1F, 10F)] public float hurricaneSpawnInterval;       // 飓风生成间隔
+        [Range(1F, 10F)] public float lightningSpawnInterval;       // 雷生成间隔
+        [Range(1F, 10F)] public float hailSpawnInterval;       // 冰雹生成间隔
 
         [Header("各季节数据")]
         public Season_SO springData;

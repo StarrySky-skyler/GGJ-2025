@@ -23,6 +23,7 @@ namespace Tsuki.Weather
         private void Start()
         {
             _rigidbody2D.velocity = new Vector2(-1f, -WeatherManager.Instance.WeatherData.hailSpeed);
+            Destroy(gameObject, WeatherManager.Instance.WeatherData.hailDuration);
         }
 
         private void OnTriggerEnter2D(Collider2D other)

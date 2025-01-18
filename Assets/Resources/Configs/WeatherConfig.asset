@@ -21,6 +21,9 @@ MonoBehaviour:
   hailDuration: 3.83
   seasonDuration: 14.9
   weatherAddInterval: 3
+  hurricaneSpawnInterval: 2
+  lightningSpawnInterval: 2
+  hailSpawnInterval: 2
   springData: {fileID: 11400000, guid: c06c2eb7bc08ce941966ff6627ac1bde, type: 2}
   summerData: {fileID: 11400000, guid: c82a034d116831940aa67ae3c517823c, type: 2}
   autumnData: {fileID: 11400000, guid: 74aa5e9dccea34a41b149ff07b263a99, type: 2}
