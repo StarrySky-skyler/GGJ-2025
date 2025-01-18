@@ -7,6 +7,7 @@
 // ********************************************************************************
 
 using System;
+using Tsuki.Weather;
 using UnityEngine;
 
 namespace Tsuki.Managers
@@ -25,6 +26,12 @@ namespace Tsuki.Managers
             Instance = this;
             // 限制最高帧率
             Application.targetFrameRate = 160;
+        }
+
+        private void Start()
+        {
+            var weatherOperate = GetComponent<IWeatherOperate>();
+            weatherOperate.CurrentSeason = SeasonTye.Autumn;
         }
     }
 }

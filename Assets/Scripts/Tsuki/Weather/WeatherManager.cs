@@ -37,6 +37,9 @@ namespace Tsuki.Weather
         }
 
         public Action<SeasonTye> OnSeasonChanged { get; set; }
+        public Action<WeatherType> OnWeatherAdded { get; set; }
+        public Action<WeatherType> OnWeatherRemoved { get; set; }
+        public Action OnWeatherCleared { get; set; }
 
         private SeasonTye _currentSeason;
 
@@ -47,6 +50,11 @@ namespace Tsuki.Weather
         /// <param name="duration">持续时间</param>
         public void AddWeather(WeatherType weatherType, float duration)
         {
+            if (weatherType == WeatherType.Sunny)
+            {
+                SetWeatherSunny();
+                return;
+            }
             CurrentWeathers.Add(weatherType);
             StartCoroutine(DelayRemoveWeather(weatherType, duration));
         }
@@ -92,14 +100,20 @@ namespace Tsuki.Weather
                     foreach (WeatherType weather in e.NewItems)
                     {
                         WeatherHandler.HandleWeather(weather);
+                        OnWeatherAdded?.Invoke(weather);
                     }
 
                     break;
                 case NotifyCollectionChangedAction.Remove:
                     // TODO: 移除天气逻辑
+                    foreach (WeatherType weather in e.OldItems)
+                    {
+                        OnWeatherRemoved?.Invoke(weather);
+                    }
                     break;
                 case NotifyCollectionChangedAction.Reset:
                     // TODO: 重置天气逻辑，调用Clear方法触发
+                    OnWeatherCleared?.Invoke();
                     break;
                 default:
                     break;
@@ -111,10 +125,15 @@ namespace Tsuki.Weather
             Instance = this;
             // 注册事件
             OnSeasonChanged += WeatherHandler.HandleSeason;
-            CurrentWeathers.CollectionChanged += OnCurrentWeatherChanged;
             // 初始化天气
             CurrentSeason = SeasonTye.Spring;
             CurrentWeathers = new ObservableCollection<WeatherType>();
+        }
+
+        private void Start()
+        {
+            // 注册事件
+            CurrentWeathers.CollectionChanged += OnCurrentWeatherChanged;
         }
     }
 }

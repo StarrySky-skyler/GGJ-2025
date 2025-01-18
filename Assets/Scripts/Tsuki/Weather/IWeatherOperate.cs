@@ -19,6 +19,9 @@ namespace Tsuki.Weather
         ObservableCollection<WeatherType> CurrentWeathers { get; }
         SeasonTye CurrentSeason { get; set; }
         [CanBeNull] Action<SeasonTye> OnSeasonChanged { get; set; }
+        [CanBeNull] Action<WeatherType> OnWeatherAdded { get; set; }
+        [CanBeNull] Action<WeatherType> OnWeatherRemoved { get; set; }
+        [CanBeNull] Action OnWeatherCleared { get; set; }
         /// <summary>
         /// 添加天气
         /// </summary>
