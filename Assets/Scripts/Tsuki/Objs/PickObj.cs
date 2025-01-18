@@ -32,7 +32,18 @@ namespace Tsuki.Objs
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (!other.CompareTag("Player")) return;
-            GameManager.Instance.Score++;
+            switch (gameObject.tag)
+            {
+                case "Flower":
+                    GameManager.Instance.Score += 5;
+                    break;
+                case "Leaf":
+                    GameManager.Instance.Score += 3;
+                    break;
+                case "Snow":
+                    GameManager.Instance.Score += 2;
+                    break;
+            }
             Destroy(gameObject);
         }
     }
