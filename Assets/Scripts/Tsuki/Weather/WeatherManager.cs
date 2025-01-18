@@ -20,8 +20,11 @@ namespace Tsuki.Weather
     {
         public static WeatherManager Instance { get; private set; }
 
+        [Header("配置数据")]
         public GameObject fog;      // 雾霾
         public float lightningWarningTime; // 闪电预警时间
+        [Range(0.1F, 10F)]
+        public float hailSpeed;     // 冰雹下落速度
         
         public ObservableCollection<WeatherType> CurrentWeathers { get; private set; }
 
