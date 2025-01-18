@@ -20,19 +20,16 @@ namespace Tsuki.Weather
     {
         public static WeatherManager Instance { get; private set; }
 
-        [Header("配置数据")]
+        public Weather_SO WeatherData { get; private set; }
+
         public GameObject fog;      // 雾霾
-        public float lightningWarningTime; // 闪电预警时间
-        [Range(0.1F, 10F)]
-        public float hailSpeed;     // 冰雹下落速度
-        [Range(3F, 30F)] public float seasonDuration;       // 季节持续时间
         
         public ObservableCollection<WeatherType> CurrentWeathers { get; private set; }
 
         /// <summary>
         /// 当前季节
         /// </summary>
-        public SeasonTye CurrentSeason
+        public Season_SO CurrentSeason
         {
             get => _currentSeason;
             set
@@ -42,14 +39,50 @@ namespace Tsuki.Weather
             }
         }
 
-        public Action<SeasonTye> OnSeasonChanged { get; set; }
+        public Action<Season_SO> OnSeasonChanged { get; set; }
         public Action<WeatherType> OnWeatherAdded { get; set; }
         public Action<WeatherType> OnWeatherRemoved { get; set; }
         public Action OnWeatherCleared { get; set; }
 
-        private SeasonTye _currentSeason;
+        private Season_SO _currentSeason;
         private WeatherHandler _weatherHandler;
 
+        /// <summary>
+        /// 获取随机天气
+        /// </summary>
+        /// <returns></returns>
+        public WeatherType GetRandomWeather()
+        {
+            int totalWeight = CurrentSeason.GetTotalWeight();
+            int random = UnityEngine.Random.Range(0, totalWeight);
+            var weights = new int[]
+            {
+                CurrentSeason.hurricaneWeight,
+                CurrentSeason.rainWeight,
+                CurrentSeason.fogWeight,
+                CurrentSeason.lightningWeight,
+                CurrentSeason.hailWeight
+            };
+            int index = -1;
+            for (var i = 0; i < 5; i++)
+            {
+                random -= weights[i];
+                if (random > 0) continue;
+                index = i;
+                break;
+            }
+
+            return index switch
+            {
+                0 => WeatherType.Hurricane,
+                1 => WeatherType.Rainy,
+                2 => WeatherType.Fog,
+                3 => WeatherType.Lightning,
+                4 => WeatherType.Hail,
+                _ => WeatherType.Sunny
+            };
+        }
+        
         /// <summary>
         /// 添加天气
         /// </summary>
@@ -62,6 +95,7 @@ namespace Tsuki.Weather
                 SetWeatherSunny();
                 return;
             }
+
             CurrentWeathers.Add(weatherType);
             StartCoroutine(DelayRemoveWeather(weatherType, duration));
         }
@@ -108,12 +142,14 @@ namespace Tsuki.Weather
                     {
                         OnWeatherAdded?.Invoke(weather);
                     }
+
                     break;
                 case NotifyCollectionChangedAction.Remove:
                     foreach (WeatherType weather in e.OldItems)
                     {
                         OnWeatherRemoved?.Invoke(weather);
                     }
+
                     break;
                 case NotifyCollectionChangedAction.Reset:
                     // TODO: 重置天气逻辑，调用Clear方法触发
@@ -133,6 +169,7 @@ namespace Tsuki.Weather
             // 初始化天气
             CurrentWeathers = new ObservableCollection<WeatherType>();
             fog.SetActive(false);
+            WeatherData = Resources.Load<Weather_SO>("Configs/WeatherConfig");
         }
 
         private void Start()

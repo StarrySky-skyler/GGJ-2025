@@ -40,21 +40,21 @@ namespace Tsuki.Managers
         /// 更新季节UI
         /// </summary>
         /// <param name="season"></param>
-        private void UpdateSeasonUI(SeasonTye season)
+        private void UpdateSeasonUI(Season_SO season)
         {
             txtSeason.text = "当前季节：";
-            switch (season)
+            switch (season.season)
             {
-                case SeasonTye.Spring:
+                case SeasonType.Spring:
                     txtSeason.text += "春";
                     break;
-                case SeasonTye.Summer:
+                case SeasonType.Summer:
                     txtSeason.text += "夏";
                     break;
-                case SeasonTye.Autumn:
+                case SeasonType.Autumn:
                     txtSeason.text += "秋";
                     break;
-                case SeasonTye.Winter:
+                case SeasonType.Winter:
                     txtSeason.text += "冬";
                     break;
             }

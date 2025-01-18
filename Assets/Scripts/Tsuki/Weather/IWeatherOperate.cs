@@ -16,9 +16,10 @@ namespace Tsuki.Weather
 {
     public interface IWeatherOperate
     {
+        Weather_SO WeatherData { get; }
         ObservableCollection<WeatherType> CurrentWeathers { get; }
-        SeasonTye CurrentSeason { get; set; }
-        [CanBeNull] Action<SeasonTye> OnSeasonChanged { get; set; }
+        Season_SO CurrentSeason { get; set; }
+        [CanBeNull] Action<Season_SO> OnSeasonChanged { get; set; }
         [CanBeNull] Action<WeatherType> OnWeatherAdded { get; set; }
         [CanBeNull] Action<WeatherType> OnWeatherRemoved { get; set; }
         [CanBeNull] Action OnWeatherCleared { get; set; }

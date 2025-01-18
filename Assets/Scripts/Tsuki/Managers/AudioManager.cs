@@ -38,22 +38,22 @@ namespace Tsuki.Managers
         /// 播放季节bgm
         /// </summary>
         /// <param name="season"></param>
-        private void PlayBgm(SeasonTye season)
+        private void PlayBgm(Season_SO season)
         {
             bgmAudioSource.Stop();
             AudioClip clip = Resources.Load<AudioClip>("AudioClips/Bgm/春");
-            switch (season)
+            switch (season.season)
             {
-                case SeasonTye.Spring:
+                case SeasonType.Spring:
                     clip = Resources.Load<AudioClip>("AudioClips/Bgm/春");
                     break;
-                case SeasonTye.Summer:
+                case SeasonType.Summer:
                     clip = Resources.Load<AudioClip>("AudioClips/Bgm/夏");
                     break;
-                case SeasonTye.Autumn:
+                case SeasonType.Autumn:
                     clip = Resources.Load<AudioClip>("AudioClips/Bgm/秋");
                     break;
-                case SeasonTye.Winter:
+                case SeasonType.Winter:
                     clip = Resources.Load<AudioClip>("AudioClips/Bgm/冬");
                     break;
             }

@@ -41,7 +41,7 @@ namespace Tsuki.Weather
         Hail
     }
 
-    public enum SeasonTye
+    public enum SeasonType
     {
         /// <summary>
         /// 春天，掉落花瓣

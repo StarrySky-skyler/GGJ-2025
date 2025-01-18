@@ -42,7 +42,7 @@ namespace Tsuki.Weather
         private void Update()
         {
             _timer += Time.deltaTime;
-            if (_timer >= WeatherManager.Instance.lightningWarningTime && !_triggered)
+            if (_timer >= WeatherManager.Instance.WeatherData.lightningWarningTime && !_triggered)
             {
                 ActiveDamageArea();
                 _triggered = true;

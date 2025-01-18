@@ -22,7 +22,7 @@ namespace Tsuki.Weather
 
         private void Start()
         {
-            _rigidbody2D.velocity = new Vector2(0, -WeatherManager.Instance.hailSpeed);
+            _rigidbody2D.velocity = new Vector2(0, -WeatherManager.Instance.WeatherData.hailSpeed);
         }
 
         private void OnTriggerEnter2D(Collider2D other)
