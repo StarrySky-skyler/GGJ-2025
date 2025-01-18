@@ -175,6 +175,7 @@ MonoBehaviour:
   fog: {fileID: 1139727961}
   lightningWarningTime: 2
   hailSpeed: 6.1
+  seasonDuration: 15
 --- !u!114 &451799385
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -25,6 +25,7 @@ namespace Tsuki.Weather
         public float lightningWarningTime; // 闪电预警时间
         [Range(0.1F, 10F)]
         public float hailSpeed;     // 冰雹下落速度
+        [Range(3F, 30F)] public float seasonDuration;       // 季节持续时间
         
         public ObservableCollection<WeatherType> CurrentWeathers { get; private set; }
 
@@ -36,7 +37,6 @@ namespace Tsuki.Weather
             get => _currentSeason;
             set
             {
-                if (_currentSeason == value) return;
                 _currentSeason = value;
                 OnSeasonChanged?.Invoke(_currentSeason);
             }
@@ -131,7 +131,6 @@ namespace Tsuki.Weather
             OnWeatherAdded += _weatherHandler.HandleAddWeather;
             OnWeatherRemoved += _weatherHandler.HandleRemoveWeather;
             // 初始化天气
-            CurrentSeason = SeasonTye.Spring;
             CurrentWeathers = new ObservableCollection<WeatherType>();
             fog.SetActive(false);
         }

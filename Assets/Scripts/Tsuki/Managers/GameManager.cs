@@ -7,6 +7,7 @@
 // ********************************************************************************
 
 using System;
+using System.Collections;
 using Tsuki.Weather;
 using UnityEngine;
 
@@ -30,9 +31,27 @@ namespace Tsuki.Managers
 
         private void Start()
         {
-            var weatherOperate = GetComponent<IWeatherOperate>();
-            weatherOperate.CurrentSeason = SeasonTye.Autumn;
-            weatherOperate.AddWeather(WeatherType.Fog, 10f);
+            WeatherManager.Instance.SetWeatherSunny();
+            WeatherManager.Instance.CurrentSeason = SeasonTye.Spring;
+            StartCoroutine(SwitchSeason());
+        }
+
+        private IEnumerator SwitchSeason()
+        {
+            while (true)
+            {
+                // 等待季节时间
+                yield return new WaitForSeconds(WeatherManager.Instance.seasonDuration);
+                // 切换季节
+                WeatherManager.Instance.CurrentSeason = WeatherManager.Instance.CurrentSeason switch
+                {
+                    SeasonTye.Spring => SeasonTye.Summer,
+                    SeasonTye.Summer => SeasonTye.Autumn,
+                    SeasonTye.Autumn => SeasonTye.Winter,
+                    SeasonTye.Winter => SeasonTye.Spring,
+                    _ => WeatherManager.Instance.CurrentSeason
+                };
+            }
         }
     }
 }
