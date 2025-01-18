@@ -80,6 +80,24 @@ namespace Tsuki.Objs
             Object.Instantiate(_objManager.fengChe, pos, Quaternion.identity);
         }
 
+        private void SpawnTengWan()
+        {
+            var pos = new Vector3(Screen.width, Screen.height, 0);
+            pos = Camera.main.ScreenToWorldPoint(pos);
+            pos.z = 0;
+            Object.Instantiate(_objManager.tengWan, pos, Quaternion.identity);
+        }
+
+
+        public IEnumerator DelaySpawnTengWan()
+        {
+            while (true)
+            {
+                yield return new WaitForSeconds(_objManager.tengWanSpawnInterval);
+                SpawnTengWan();
+            }
+        }
+
         public IEnumerator DelaySpawnFengChe()
         {
             while (true)

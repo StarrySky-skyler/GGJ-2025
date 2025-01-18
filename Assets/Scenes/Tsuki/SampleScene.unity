@@ -524,8 +524,10 @@ MonoBehaviour:
   hail: {fileID: 7846897872729618191, guid: d55fa2bd162eb0d46b72b55f3dd60eb4, type: 3}
   lightning: {fileID: 1400963127471305575, guid: 750d99073c1641f42b18f22f44506521, type: 3}
   fengChe: {fileID: 837172542418686257, guid: 53e76662313768f4eb13438975eee2ed, type: 3}
+  tengWan: {fileID: 6183326191271258973, guid: 88c340aa8bfc4fb41a6309fb2896565f, type: 3}
   spawnInterval: 1
   fengCheSpawnInterval: 3
+  tengWanSpawnInterval: 3
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
