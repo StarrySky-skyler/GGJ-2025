@@ -32,6 +32,7 @@ namespace Tsuki.Managers
         {
             var weatherOperate = GetComponent<IWeatherOperate>();
             weatherOperate.CurrentSeason = SeasonTye.Autumn;
+            weatherOperate.AddWeather(WeatherType.Fog, 10f);
         }
     }
 }

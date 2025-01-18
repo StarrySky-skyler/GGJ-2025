@@ -20,6 +20,8 @@ namespace Tsuki.Weather
     {
         public static WeatherManager Instance { get; private set; }
 
+        public GameObject fog;      // 雾霾
+        
         public ObservableCollection<WeatherType> CurrentWeathers { get; private set; }
 
         /// <summary>
@@ -42,6 +44,7 @@ namespace Tsuki.Weather
         public Action OnWeatherCleared { get; set; }
 
         private SeasonTye _currentSeason;
+        private WeatherHandler _weatherHandler;
 
         /// <summary>
         /// 添加天气
@@ -99,13 +102,10 @@ namespace Tsuki.Weather
                 case NotifyCollectionChangedAction.Add:
                     foreach (WeatherType weather in e.NewItems)
                     {
-                        WeatherHandler.HandleWeather(weather);
                         OnWeatherAdded?.Invoke(weather);
                     }
-
                     break;
                 case NotifyCollectionChangedAction.Remove:
-                    // TODO: 移除天气逻辑
                     foreach (WeatherType weather in e.OldItems)
                     {
                         OnWeatherRemoved?.Invoke(weather);
@@ -115,19 +115,21 @@ namespace Tsuki.Weather
                     // TODO: 重置天气逻辑，调用Clear方法触发
                     OnWeatherCleared?.Invoke();
                     break;
-                default:
-                    break;
             }
         }
 
         private void Awake()
         {
             Instance = this;
+            _weatherHandler = new WeatherHandler(Instance);
             // 注册事件
-            OnSeasonChanged += WeatherHandler.HandleSeason;
+            OnSeasonChanged += _weatherHandler.HandleSeason;
+            OnWeatherAdded += _weatherHandler.HandleAddWeather;
+            OnWeatherRemoved += _weatherHandler.HandleRemoveWeather;
             // 初始化天气
             CurrentSeason = SeasonTye.Spring;
             CurrentWeathers = new ObservableCollection<WeatherType>();
+            fog.SetActive(false);
         }
 
         private void Start()

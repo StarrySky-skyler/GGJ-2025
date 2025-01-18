@@ -13,37 +13,77 @@ using UnityEngine;
 
 namespace Tsuki.Weather
 {
-    public static class WeatherHandler
+    public class WeatherHandler
     {
+        public WeatherManager SWeatherManager { get; private set; }
+
+        public WeatherHandler(WeatherManager weatherManager)
+        {
+            SWeatherManager = weatherManager;
+        }
+        
         /// <summary>
-        /// 处理天气
+        /// 处理添加天气
         /// </summary>
         /// <param name="weatherType"></param>
-        public static void HandleWeather(WeatherType weatherType)
+        public void HandleAddWeather(WeatherType weatherType)
         {
             switch (weatherType)
             {
                 case WeatherType.Hurricane:
-                    Debug.Log("处理飓风天气");
+                    Debug.Log("处理添加飓风天气");
                     break;
                 case WeatherType.Rainy:
-                    Debug.Log("处理雨天");
+                    Debug.Log("处理添加雨天");
                     // TODO: 使向上操作变得困难，按两次w等价于一次w
                     break;
                 case WeatherType.Fog:
-                    Debug.Log("处理雾霾天气");
-                    // TODO: 使整个画面模糊
+                    Debug.Log("处理添加雾霾天气");
+                    SWeatherManager.fog.SetActive(true);
                     break;
                 case WeatherType.Lightning:
-                    Debug.Log("处理雷电天气");
+                    Debug.Log("处理添加雷电天气");
                     // TODO: 范围伤害
                     break;
                 case WeatherType.Hail:
-                    Debug.Log("处理冰雹天气");
+                    Debug.Log("处理添加冰雹天气");
                     // TODO: 单体伤害
                     break;
                 default:
-                    Debug.LogError($"未知天气类型{weatherType.ToString()}");
+                    Debug.LogError($"添加未知天气类型{weatherType.ToString()}");
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// 处理移除天气
+        /// </summary>
+        /// <param name="weatherType"></param>
+        public void HandleRemoveWeather(WeatherType weatherType)
+        {
+            switch (weatherType)
+            {
+                case WeatherType.Hurricane:
+                    Debug.Log("处理移除飓风天气");
+                    break;
+                case WeatherType.Rainy:
+                    Debug.Log("处理移除雨天");
+                    // TODO: 使向上操作变得困难，按两次w等价于一次w
+                    break;
+                case WeatherType.Fog:
+                    Debug.Log("处理移除雾霾天气");
+                    SWeatherManager.fog.SetActive(false);
+                    break;
+                case WeatherType.Lightning:
+                    Debug.Log("处理移除雷电天气");
+                    // TODO: 范围伤害
+                    break;
+                case WeatherType.Hail:
+                    Debug.Log("处理移除冰雹天气");
+                    // TODO: 单体伤害
+                    break;
+                default:
+                    Debug.LogError($"移除未知天气类型{weatherType.ToString()}");
                     break;
             }
         }
@@ -52,7 +92,7 @@ namespace Tsuki.Weather
         /// 处理季节
         /// </summary>
         /// <param name="seasonType"></param>
-        public static void HandleSeason(SeasonTye seasonType)
+        public void HandleSeason(SeasonTye seasonType)
         {
             switch (seasonType)
             {

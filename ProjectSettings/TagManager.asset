@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - WeatherHurricane
+  - WeatherFog
   layers:
   - Default
   - TransparentFX
