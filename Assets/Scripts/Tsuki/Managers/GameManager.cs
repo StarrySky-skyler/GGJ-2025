@@ -8,6 +8,7 @@
 
 using System;
 using System.Collections;
+using JetBrains.Annotations;
 using Tsuki.Weather;
 using UnityEngine;
 
@@ -20,7 +21,19 @@ namespace Tsuki.Managers
         /// <summary>
         /// 分数
         /// </summary>
-        public int score;
+        public int Score
+        {
+            get => _score;
+            set
+            {
+                _score = value;
+                OnScoreChanged?.Invoke(_score);
+            }
+        }
+        
+        [CanBeNull] public Action<int> OnScoreChanged;
+
+        private int _score;
 
         private void Awake()
         {
@@ -84,6 +97,7 @@ namespace Tsuki.Managers
                         duration = WeatherManager.Instance.WeatherData.hailDuration;
                         break;
                 }
+
                 WeatherManager.Instance.AddWeather(newWeather, duration);
             }
         }

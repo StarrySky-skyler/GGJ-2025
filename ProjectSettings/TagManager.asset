@@ -8,6 +8,7 @@ TagManager:
   - WeatherFog
   - WeatherLighning
   - WeatherHail
+  - Flower
   layers:
   - Default
   - TransparentFX

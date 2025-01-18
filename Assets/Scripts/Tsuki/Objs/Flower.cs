@@ -1,34 +1,39 @@
 ﻿// ********************************************************************************
 // @author: Starry Sky
 // @email: xiaoyuesun915@gmail.com
-// @creationDate: 2025/01/18 14:01
+// @creationDate: 2025/01/18 17:01
 // @version: 1.0
 // @description:
 // ********************************************************************************
 
 using System;
+using Tsuki.Managers;
 using UnityEngine;
 
-namespace Tsuki.Weather
+namespace Tsuki.Objs
 {
-    public class Hail : MonoBehaviour
+    public class Flower : MonoBehaviour
     {
-        private Rigidbody2D _rigidbody2D;
+        public float speed;
         
+        private Rigidbody2D _rb2D;
+
         private void Awake()
         {
-            _rigidbody2D = GetComponent<Rigidbody2D>();
+            _rb2D = GetComponent<Rigidbody2D>();
         }
 
         private void Start()
         {
-            _rigidbody2D.velocity = new Vector2(-1f, -WeatherManager.Instance.WeatherData.hailSpeed);
+            _rb2D.velocity = new Vector2(-1f, -1f) * speed;
+            Destroy(gameObject, 10f);
         }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (!other.CompareTag("Player")) return;
-            // TODO: 玩家泡泡破碎
+            GameManager.Instance.Score++;
+            Destroy(gameObject);
         }
     }
 }

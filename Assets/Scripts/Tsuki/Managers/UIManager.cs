@@ -19,6 +19,7 @@ namespace Tsuki.Managers
 
         [Header("UI配置")] public Text txtWeather;
         public Text txtSeason;
+        public Text txtScore;
 
         private void Awake()
         {
@@ -29,6 +30,7 @@ namespace Tsuki.Managers
         {
             // 注册事件
             WeatherManager.Instance.OnSeasonChanged += UpdateSeasonUI;
+            GameManager.Instance.OnScoreChanged += UpdateScoreUI;
         }
 
         private void Update()
@@ -91,6 +93,14 @@ namespace Tsuki.Managers
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// 更新分数UI
+        /// </summary>
+        private void UpdateScoreUI(int score)
+        {
+            txtScore.text = $"当前分数：{score}";
         }
     }
 }
