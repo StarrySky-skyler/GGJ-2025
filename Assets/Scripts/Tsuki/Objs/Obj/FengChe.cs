@@ -13,6 +13,7 @@ namespace Tsuki.Objs
 {
     public class FengChe : AutoDestoryObj
     {
+        public float speedIncrease = 5f;  // �����ٶ����ӵ���
         private bool _triggered;
         
         private void OnTriggerEnter2D(Collider2D other)
@@ -20,7 +21,12 @@ namespace Tsuki.Objs
             if (other.CompareTag("Player") && !_triggered)
             {
                 _triggered = true;
-                // TODO: 触碰风车，玩家加速
+                Rigidbody2D bubbleRigidbody = other.GetComponent<Rigidbody2D>();
+                if (bubbleRigidbody != null)
+                {
+                    bubbleRigidbody.velocity += Vector2.right * speedIncrease;  // �������ݵ��ٶ�
+                }
+                Destroy(gameObject);  // ���ٷ糵����
             }
         }
     }

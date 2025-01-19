@@ -7,8 +7,10 @@
 // ********************************************************************************
 
 using System;
+using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -18,6 +20,8 @@ namespace Tsuki.UI.StartScene
     {
         public Image imgScreenMask;
         public Image imgCG;
+        
+        public List<Sprite> listCG;
 
         private void Start()
         {
@@ -29,11 +33,18 @@ namespace Tsuki.UI.StartScene
             imgScreenMask.DOFade(1F, 1F).OnComplete(() =>
             {
                 imgCG.gameObject.SetActive(true);
-                imgScreenMask.DOFade(0F, 1F).OnComplete(() =>
-                {
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-                });
+                imgCG.GetComponent<PlayableDirector>().Play();
             });
+        }
+
+        public void LoadNextScene()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+
+        public void CGReceiver(int index)
+        {
+            imgCG.sprite = listCG[index];
         }
     }
 }

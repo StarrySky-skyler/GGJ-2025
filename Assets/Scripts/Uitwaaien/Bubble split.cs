@@ -1,15 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BubbleController : MonoBehaviour
 {
-    public GameObject bubblePrefab; // пбещещ╣дт╓жфлЕ
-    public float fallSpeed = 5.0f; // оббДкы╤х
-    public float jumpSpeed = 10.0f; // лЬт╬кы╤х
+    public GameObject bubblePrefab; // О©╫О©╫О©╫О©╫О©╫щ╣О©╫т╓О©╫О©╫О©╫О©╫
+    public float fallSpeed = 5.0f; // О©╫О©╫О©╫О©╫О©╫ы╤О©╫
+    public float jumpSpeed = 10.0f; // О©╫О©╫т╬О©╫ы╤О©╫
     private Rigidbody2D rb;
-    private bool isGrounded = false; // йг╥Ятз╣ьцФио
-    private GameObject generatedBubble; // иЗЁи╣дпбещещ╣дрЩсц
+    private bool isGrounded = false; // О©╫г╥О©╫О©╫з╣О©╫О©╫О©╫О©╫О©╫
+    private GameObject generatedBubble; // О©╫О©╫О©╫и╣О©╫О©╫О©╫О©╫О©╫О©╫щ╣О©╫О©╫О©╫О©╫О©╫
 
     void Start()
     {
@@ -18,77 +19,82 @@ public class BubbleController : MonoBehaviour
 
     void Update()
     {
-        // втсиоббД
+        // О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫
         if (isGrounded)
         {
             rb.velocity = new Vector2(0, -fallSpeed);
         }
 
-        // ╪Л╡Б╥жая╟╢╪ЭйДхК
+        // О©╫О©╫О©╫О©╫О©╫я╟О©╫О©╫О©╫О©╫О©╫О©╫О©╫
         if (Input.GetKeyDown(KeyCode.F))
         {
             SplitBubble();
         }
 
-        // ╪Л╡БлЬт╬╟╢╪ЭйДхК
+        // О©╫О©╫О©╫О©╫О©╫т╬О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫
         if (Input.GetKeyDown(KeyCode.Space) && generatedBubble != null)
         {
             Jump();
         }
     }
 
-    // иЗЁипбещещ
+    private void FixedUpdate()
+    {
+        //Ф╜╓Е╓└Е▐╞Ф═╧Ф█╝И°─Х╕│Ф╥╩Е┼═Е┘╤Д╩√ФЁ║ФЁ║Г └Г╖╩Е┼╗Ф┬√Ф▌╖Е┬╤И─╩Х╬▒
+    }
+
+    // О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫
     public void SplitBubble()
     {
-        // ╩Ях║т╜ещещ╣дЁъ╢Г
+        // О©╫О©╫х║т╜О©╫О©╫О©╫щ╣дЁъ╢О©╫
         float bubbleSize = transform.localScale.y;
 
-        // тзт╜ещещуЩоб╥╫иЗЁипбещещё╛╫Т╟╓вет╜ещещ
+        // О©╫О©╫т╜О©╫О©╫О©╫О©╫О©╫О©╫О©╫б╥О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫щёО©╫О©╫О©╫О©╫О©╫О©╫О©╫т╜О©╫О©╫О©╫О©╫
         Vector3 spawnPosition = transform.position + new Vector3(0, -bubbleSize, 0);
         generatedBubble = Instantiate(bubblePrefab, spawnPosition, Quaternion.identity);
 
-        // иХжцпбещещ╣доббДкы╤х
+        // О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫щ╣О©╫О©╫О©╫О©╫О©╫О©╫ы╤О©╫
         Rigidbody2D generatedRb = generatedBubble.GetComponent<Rigidbody2D>();
         generatedRb.velocity = new Vector2(0, -fallSpeed);
 
-        // х╥╠ёпбещещспеЖв╡фВ
+        // х╥О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫в╡О©╫О©╫
         if (!generatedBubble.GetComponent<Collider2D>())
         {
             generatedBubble.AddComponent<BoxCollider2D>();
         }
     }
 
-    // лЬт╬╥╫╥╗
+    // О©╫О©╫т╬О©╫О©╫О©╫О©╫
     public void Jump()
     {
-        // ╥жюКпбещещё╛й╧фД╤юа╒тк╤╞
+        // О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫щёО©╫й╧О©╫О©╫О©╫О©╫О©╫О©╫к╤О©╫
         if (generatedBubble != null)
         {
             generatedBubble.transform.parent = null;
-            generatedBubble = null; // жьжцрЩсц
+            generatedBubble = null; // О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫
         }
 
-        // ╩Ях║╥╫оР╪Э╣д╥╫оР
+        // О©╫О©╫х║О©╫О©╫О©╫О©╫О©╫О©╫д╥О©╫О©╫О©╫
         float horizontal = Input.GetAxis("Horizontal");
 
-        // ╦Ьт╜ещещр╩╦Ж╥╫оРио╣дЁУкы╤х
+        // О©╫О©╫т╜О©╫О©╫О©╫О©╫р╩О©╫О©╫О©╫О©╫О©╫О©╫О©╫о╣дЁО©╫О©╫ы╤О©╫
         Vector2 jumpDirection = new Vector2(horizontal, jumpSpeed).normalized * jumpSpeed;
         rb.velocity = new Vector2(jumpDirection.x, jumpSpeed);
 
-        // лЬт╬╨С╡╩тз╣ьцФио
+        // О©╫О©╫т╬О©╫О©╫О©╫з╣О©╫О©╫О©╫О©╫О©╫
         isGrounded = false;
     }
 
-    // еЖв╡╪Л╡Бё╛еп╤ойг╥Ятз╣ьцФио
+    // О©╫О©╫в╡О©╫О©╫Бё╛О©╫п╤О©╫О©╫г╥О©╫О©╫з╣О©╫О©╫О©╫О©╫О©╫
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground")) // ╪ыиХ╣ьцФ╠Йг╘н╙"Ground"
+        if (collision.gameObject.CompareTag("Ground")) // О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫г╘н╙"Ground"
         {
             isGrounded = true;
         }
     }
 
-    // юК©╙╣ьцФеп╤о
+    // О©╫К©╙О©╫О©╫О©╫О©╫О©╫п╤О©╫
     void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
