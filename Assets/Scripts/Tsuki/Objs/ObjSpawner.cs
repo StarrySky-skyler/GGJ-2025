@@ -96,6 +96,37 @@ namespace Tsuki.Objs
             AudioManager.Instance.PlaySoundEffects(WeatherType.Hurricane);
         }
 
+        private void SpawnFish()
+        {
+            Vector3 pos = _randomPos.GetRandomFishPos();
+            Object.Instantiate(_objManager.fish, pos, Quaternion.identity);
+        }
+
+        private void SpawnRabbit()
+        {
+            Vector3 pos = _randomPos.GetRandomRabbitPos();
+            GameObject rabbit = _objManager.rabbit[Random.Range(0, _objManager.rabbit.Count)];
+            Object.Instantiate(rabbit, pos, Quaternion.identity);
+        }
+
+        public IEnumerator DelaySpawnRabbit()
+        {
+            while (true)
+            {
+                yield return new WaitForSeconds(_objManager.rabbitSpawnInterval);
+                SpawnRabbit();
+            }
+        }
+
+        public IEnumerator DelaySpawnFish()
+        {
+            while (true)
+            {
+                yield return new WaitForSeconds(_objManager.fishSpawnInterval);
+                SpawnFish();
+            }
+        }
+
         public IEnumerator DelaySpawnBird()
         {
             while (true)

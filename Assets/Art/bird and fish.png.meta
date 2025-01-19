@@ -283,27 +283,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bird and fish_8
-      rect:
-        serializedVersion: 2
-        x: 312
-        y: 247
-        width: 85
-        height: 39
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6a131c008be777744b9c1ebd6ea842c6
-      internalID: 1999320196
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: bird and fish_9
       rect:
         serializedVersion: 2
@@ -350,9 +329,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 244
-        y: 206
-        width: 98
-        height: 41
+        y: 207
+        width: 156
+        height: 79
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

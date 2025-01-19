@@ -19,7 +19,7 @@ namespace Tsuki.Objs
         public bool AllowSpawnHurricane { get; set; } // 是否生成飓风
         public bool AllowSpawnHail { get; set; } // 是否生成冰雹
         public bool AllowSpawnLightning { get; set; } // 是否生成闪电
-
+        
         [Header("预制体")] public GameObject flower;
         public GameObject leaf;
         public GameObject snow;
@@ -29,11 +29,15 @@ namespace Tsuki.Objs
         public GameObject fengChe;
         public GameObject tengWan;
         public GameObject bird;
+        public GameObject fish;
+        public List<GameObject> rabbit;
 
         [Header("配置数据")] [Range(1F, 10F)] public float spawnInterval; // 季节特性物生成间隔
         [Range(1F, 10F)] public float fengCheSpawnInterval; // 风车生成间隔
         [Range(1F, 10F)] public float tengWanSpawnInterval; // 藤蔓生成间隔
-        [Range(1F, 10F)] public float birdSpawnInterval; // 藤蔓生成间隔
+        [Range(1F, 10F)] public float birdSpawnInterval; // 鸟生成间隔
+        [Range(1F, 10F)] public float fishSpawnInterval; // 鱼生成间隔
+        [Range(1F, 10F)] public float rabbitSpawnInterval; // 兔生成间隔
 
         private float _timer;
         private RandomPos _randomPos;
@@ -54,6 +58,8 @@ namespace Tsuki.Objs
             StartCoroutine(_objSpawner.DelaySpawnFengChe());
             StartCoroutine(_objSpawner.DelaySpawnTengWan());
             StartCoroutine(_objSpawner.DelaySpawnBird());
+            StartCoroutine(_objSpawner.DelaySpawnFish());
+            StartCoroutine(_objSpawner.DelaySpawnRabbit());
         }
 
         private void Update()

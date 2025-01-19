@@ -35,9 +35,7 @@ namespace Tsuki.Objs
                 1 => new Vector3(_screenWidth, Random.Range(_screenHeight / 2, _screenHeight), 0),
                 _ => Vector3.zero
             };
-            randomPos = Camera.main.ScreenToWorldPoint(randomPos);
-            randomPos.z = 0;
-            return randomPos;
+            return GetWordPoint(randomPos);
         }
 
         /// <summary>
@@ -47,9 +45,7 @@ namespace Tsuki.Objs
         public Vector3 GetRandomRightPos()
         {
             var randomPos = new Vector3(_screenWidth, Random.Range(0, _screenHeight), 0);
-            randomPos = Camera.main.ScreenToWorldPoint(randomPos);
-            randomPos.z = 0;
-            return randomPos;
+            return GetWordPoint(randomPos);
         }
 
         /// <summary>
@@ -59,9 +55,7 @@ namespace Tsuki.Objs
         public Vector3 GetRandomRightHalfTopPos()
         {
             var randomPos = new Vector3(_screenWidth, Random.Range(_screenHeight / 2, _screenHeight), 0);
-            randomPos = Camera.main.ScreenToWorldPoint(randomPos);
-            randomPos.z = 0;
-            return randomPos;
+            return GetWordPoint(randomPos);
         }
 
         /// <summary>
@@ -71,9 +65,7 @@ namespace Tsuki.Objs
         public Vector3 GetRandomTopPos()
         {
             var randomPos = new Vector3(Random.Range(0, _screenWidth), _screenHeight, 0);
-            randomPos = Camera.main.ScreenToWorldPoint(randomPos);
-            randomPos.z = 0;
-            return randomPos;
+            return GetWordPoint(randomPos);
         }
         
         /// <summary>
@@ -82,12 +74,27 @@ namespace Tsuki.Objs
         /// <returns></returns>
         public Vector3 GetRandomPos()
         {
-            float screenWidth = Screen.width;
-            float screenHeight = Screen.height;
-            var randomPos = new Vector3(Random.Range(0, screenWidth), Random.Range(0, screenHeight), 0);
-            randomPos = Camera.main.ScreenToWorldPoint(randomPos);
-            randomPos.z = 0;
-            return randomPos;
+            var randomPos = new Vector3(Random.Range(0, _screenWidth), Random.Range(0, _screenHeight), 0);
+            return GetWordPoint(randomPos);
+        }
+
+        public Vector3 GetRandomFishPos()
+        {
+            var randomPos = new Vector3(Random.Range(0, _screenWidth), Random.Range(0, _screenHeight / 4), 0);
+            return GetWordPoint(randomPos);
+        }
+
+        public Vector3 GetRandomRabbitPos()
+        {
+            var randomPos = new Vector3(Random.Range(0, _screenWidth), _screenHeight / 3, 0);
+            return GetWordPoint(randomPos);
+        }
+
+        private Vector3 GetWordPoint(Vector3 vector)
+        {
+            vector = Camera.main.ScreenToWorldPoint(vector);
+            vector.z = 0;
+            return vector;
         }
     }
 }

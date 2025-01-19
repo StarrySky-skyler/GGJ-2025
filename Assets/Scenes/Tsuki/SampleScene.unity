@@ -631,10 +631,17 @@ MonoBehaviour:
   fengChe: {fileID: 837172542418686257, guid: 53e76662313768f4eb13438975eee2ed, type: 3}
   tengWan: {fileID: 6183326191271258973, guid: 88c340aa8bfc4fb41a6309fb2896565f, type: 3}
   bird: {fileID: 6855018163585914468, guid: 2895ad05915f7134b8d391b3cfac2eac, type: 3}
+  fish: {fileID: 1260070071448642621, guid: 782ae1d388d89194b89b0307d92ad331, type: 3}
+  rabbit:
+  - {fileID: 3977095503147880205, guid: 0dd520c3465584645a2a32ca42cb98c6, type: 3}
+  - {fileID: 1294632697322186166, guid: 24a0bbc9e6c334e41888aa614fb661b8, type: 3}
+  - {fileID: 2660657899710767972, guid: 9f12474003497b64eba842d979d4986e, type: 3}
   spawnInterval: 1
   fengCheSpawnInterval: 3
   tengWanSpawnInterval: 3
-  birdSpawnInterval: 3
+  birdSpawnInterval: 5.54
+  fishSpawnInterval: 4.72
+  rabbitSpawnInterval: 4.09
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,6 +876,26 @@ PrefabInstance:
     - target: {fileID: 1337836233603271690, guid: 384a8558bf481764c8a81b2041f0621f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2362079525724871021, guid: 384a8558bf481764c8a81b2041f0621f, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2362079525724871021, guid: 384a8558bf481764c8a81b2041f0621f, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2362079525724871021, guid: 384a8558bf481764c8a81b2041f0621f, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.8301887
+      objectReference: {fileID: 0}
+    - target: {fileID: 2362079525724871021, guid: 384a8558bf481764c8a81b2041f0621f, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.46731928
+      objectReference: {fileID: 0}
+    - target: {fileID: 2362079525724871021, guid: 384a8558bf481764c8a81b2041f0621f, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.21146306
       objectReference: {fileID: 0}
     - target: {fileID: 3821660578479659790, guid: 384a8558bf481764c8a81b2041f0621f, type: 3}
       propertyPath: m_Name
