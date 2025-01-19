@@ -31,6 +31,7 @@ namespace Tsuki.Objs
         public GameObject bird;
         public GameObject fish;
         public List<GameObject> rabbit;
+        public GameObject songShu;
 
         [Header("配置数据")] [Range(1F, 10F)] public float spawnInterval; // 季节特性物生成间隔
         [Range(1F, 10F)] public float fengCheSpawnInterval; // 风车生成间隔
@@ -38,6 +39,7 @@ namespace Tsuki.Objs
         [Range(1F, 10F)] public float birdSpawnInterval; // 鸟生成间隔
         [Range(1F, 10F)] public float fishSpawnInterval; // 鱼生成间隔
         [Range(1F, 10F)] public float rabbitSpawnInterval; // 兔生成间隔
+        [Range(1F, 10F)] public float songShuSpawnInterval; // 松鼠生成间隔
 
         private float _timer;
         private RandomPos _randomPos;
@@ -55,11 +57,12 @@ namespace Tsuki.Objs
             StartCoroutine(_objSpawner.DelaySpawnHurricane());
             StartCoroutine(_objSpawner.DelaySpawnHail());
             StartCoroutine(_objSpawner.DelaySpawnLightning());
-            StartCoroutine(_objSpawner.DelaySpawnFengChe());
-            StartCoroutine(_objSpawner.DelaySpawnTengWan());
-            StartCoroutine(_objSpawner.DelaySpawnBird());
-            StartCoroutine(_objSpawner.DelaySpawnFish());
-            StartCoroutine(_objSpawner.DelaySpawnRabbit());
+            StartCoroutine(_objSpawner.DelaySpawn(fengCheSpawnInterval, _objSpawner.SpawnFengChe));
+            StartCoroutine(_objSpawner.DelaySpawn(tengWanSpawnInterval, _objSpawner.SpawnTengWan));
+            StartCoroutine(_objSpawner.DelaySpawn(birdSpawnInterval, _objSpawner.SpawnBird));
+            StartCoroutine(_objSpawner.DelaySpawn(fishSpawnInterval, _objSpawner.SpawnFish));
+            StartCoroutine(_objSpawner.DelaySpawn(rabbitSpawnInterval, _objSpawner.SpawnRabbit));
+            StartCoroutine(_objSpawner.DelaySpawn(songShuSpawnInterval, _objSpawner.SpawnSongShu));
         }
 
         private void Update()

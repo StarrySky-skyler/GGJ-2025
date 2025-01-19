@@ -6,10 +6,13 @@
 // @description:
 // ********************************************************************************
 
+using System;
 using System.Collections;
 using Tsuki.Managers;
 using Tsuki.Weather;
 using UnityEngine;
+using Object = UnityEngine.Object;
+using Random = UnityEngine.Random;
 
 namespace Tsuki.Objs
 {
@@ -54,34 +57,34 @@ namespace Tsuki.Objs
         /// <summary>
         /// 生成飓风
         /// </summary>
-        private void SpawnHurricane()
+        public void SpawnHurricane()
         {
             Vector3 pos = _randomPos.GetRandomRightPos();
             Object.Instantiate(_objManager.hurricane, pos, Quaternion.identity);
             AudioManager.Instance.PlaySoundEffects(WeatherType.Hurricane);
         }
 
-        private void SpawnHail()
+        public void SpawnHail()
         {
             Vector3 pos = _randomPos.GetRandomTopPos();
             GameObject h = _objManager.hail[Random.Range(0, _objManager.hail.Count)];
             Object.Instantiate(h, pos, Quaternion.identity);
         }
 
-        private void SpawnLightning()
+        public void SpawnLightning()
         {
             Vector3 pos = _randomPos.GetRandomPos();
             Object.Instantiate(_objManager.lightning, pos, Quaternion.identity);
             AudioManager.Instance.PlaySoundEffects(WeatherType.Lightning);
         }
 
-        private void SpawnFengChe()
+        public void SpawnFengChe()
         {
             Vector3 pos = _randomPos.GetRandomPos();
             Object.Instantiate(_objManager.fengChe, pos, Quaternion.identity);
         }
 
-        private void SpawnTengWan()
+        public void SpawnTengWan()
         {
             var pos = new Vector3(Screen.width, Screen.height, 0);
             pos = Camera.main.ScreenToWorldPoint(pos);
@@ -89,68 +92,38 @@ namespace Tsuki.Objs
             Object.Instantiate(_objManager.tengWan, pos, Quaternion.identity);
         }
 
-        private void SpawnBird()
+        public void SpawnBird()
         {
             Vector3 pos = _randomPos.GetRandomRightHalfTopPos();
             Object.Instantiate(_objManager.bird, pos, Quaternion.identity);
             AudioManager.Instance.PlaySoundEffects(WeatherType.Hurricane);
         }
 
-        private void SpawnFish()
+        public void SpawnFish()
         {
             Vector3 pos = _randomPos.GetRandomFishPos();
             Object.Instantiate(_objManager.fish, pos, Quaternion.identity);
         }
 
-        private void SpawnRabbit()
+        public void SpawnRabbit()
         {
             Vector3 pos = _randomPos.GetRandomRabbitPos();
             GameObject rabbit = _objManager.rabbit[Random.Range(0, _objManager.rabbit.Count)];
             Object.Instantiate(rabbit, pos, Quaternion.identity);
         }
 
-        public IEnumerator DelaySpawnRabbit()
+        public void SpawnSongShu()
         {
-            while (true)
-            {
-                yield return new WaitForSeconds(_objManager.rabbitSpawnInterval);
-                SpawnRabbit();
-            }
+            Vector3 pos = _randomPos.GetRandomRabbitPos();
+            Object.Instantiate(_objManager.songShu, pos, Quaternion.identity);
         }
 
-        public IEnumerator DelaySpawnFish()
+        public IEnumerator DelaySpawn(float interval, Action spawnAction)
         {
             while (true)
             {
-                yield return new WaitForSeconds(_objManager.fishSpawnInterval);
-                SpawnFish();
-            }
-        }
-
-        public IEnumerator DelaySpawnBird()
-        {
-            while (true)
-            {
-                yield return new WaitForSeconds(_objManager.birdSpawnInterval);
-                SpawnBird();
-            }
-        }
-
-        public IEnumerator DelaySpawnTengWan()
-        {
-            while (true)
-            {
-                yield return new WaitForSeconds(_objManager.tengWanSpawnInterval);
-                SpawnTengWan();
-            }
-        }
-
-        public IEnumerator DelaySpawnFengChe()
-        {
-            while (true)
-            {
-                yield return new WaitForSeconds(_objManager.fengCheSpawnInterval);
-                SpawnFengChe();
+                yield return new WaitForSeconds(interval);
+                spawnAction();
             }
         }
         

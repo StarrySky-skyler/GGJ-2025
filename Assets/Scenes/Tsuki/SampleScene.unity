@@ -636,12 +636,14 @@ MonoBehaviour:
   - {fileID: 3977095503147880205, guid: 0dd520c3465584645a2a32ca42cb98c6, type: 3}
   - {fileID: 1294632697322186166, guid: 24a0bbc9e6c334e41888aa614fb661b8, type: 3}
   - {fileID: 2660657899710767972, guid: 9f12474003497b64eba842d979d4986e, type: 3}
+  songShu: {fileID: 4711861860402470048, guid: 9a9a1e88119c9b542994a47184c9e5c1, type: 3}
   spawnInterval: 1
   fengCheSpawnInterval: 3
   tengWanSpawnInterval: 3
   birdSpawnInterval: 5.54
   fishSpawnInterval: 4.72
   rabbitSpawnInterval: 4.09
+  songShuSpawnInterval: 3.57
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

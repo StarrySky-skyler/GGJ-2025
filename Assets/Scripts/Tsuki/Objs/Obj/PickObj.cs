@@ -12,7 +12,7 @@ using UnityEngine;
 
 namespace Tsuki.Objs
 {
-    // TODO: 兔子，松鼠，灌木丛
+    // TODO: 灌木丛
     public class PickObj : AutoDestoryObj
     {
         public float speed;
