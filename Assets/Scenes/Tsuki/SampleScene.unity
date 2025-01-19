@@ -641,6 +641,10 @@ MonoBehaviour:
   summerBush: {fileID: 3844812188374040249, guid: 5f91a98189657704b996830d03b175e2, type: 3}
   autumnBush: {fileID: 1295531745679007172, guid: 280994e50f0a326479fa80839d2cd2f1, type: 3}
   winterBush: {fileID: 3731057492954785063, guid: 0d3f8cef953f6d842a13c4bfe161f411, type: 3}
+  lights:
+  - {fileID: 4170975810173300147, guid: b7d899b90cbc733478e6b4836c58df71, type: 3}
+  - {fileID: 6095214093996034559, guid: 42906a1650f3a77419a8b272aa5881e9, type: 3}
+  - {fileID: 1230244162105159959, guid: c6446cad3f8e83c46bf4050557977b4b, type: 3}
   spawnInterval: 1
   fengCheSpawnInterval: 3
   tengWanSpawnInterval: 3
@@ -649,6 +653,7 @@ MonoBehaviour:
   rabbitSpawnInterval: 4.09
   songShuSpawnInterval: 3.57
   bushSpawnInterval: 2.74
+  lightSpawnInterval: 2.24
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

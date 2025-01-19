@@ -36,6 +36,7 @@ namespace Tsuki.Objs
         public GameObject summerBush;
         public GameObject autumnBush;
         public GameObject winterBush;
+        public List<GameObject> lights;
 
         [Header("配置数据")] [Range(1F, 10F)] public float spawnInterval; // 季节特性物生成间隔
         [Range(1F, 10F)] public float fengCheSpawnInterval; // 风车生成间隔
@@ -45,6 +46,7 @@ namespace Tsuki.Objs
         [Range(1F, 10F)] public float rabbitSpawnInterval; // 兔生成间隔
         [Range(1F, 10F)] public float songShuSpawnInterval; // 松鼠生成间隔
         [Range(1F, 10F)] public float bushSpawnInterval; // 灌木丛生成间隔
+        [Range(1F, 10F)] public float lightSpawnInterval; // 光线生成间隔
 
         private float _timer;
         private RandomPos _randomPos;
@@ -69,6 +71,7 @@ namespace Tsuki.Objs
             StartCoroutine(_objSpawner.DelaySpawn(rabbitSpawnInterval, _objSpawner.SpawnRabbit));
             StartCoroutine(_objSpawner.DelaySpawn(songShuSpawnInterval, _objSpawner.SpawnSongShu));
             StartCoroutine(_objSpawner.DelaySpawn(bushSpawnInterval, _objSpawner.SpawnBush));
+            StartCoroutine(_objSpawner.DelaySpawn(lightSpawnInterval, _objSpawner.SpawnLight));
         }
 
         private void Update()

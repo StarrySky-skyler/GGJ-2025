@@ -138,6 +138,14 @@ namespace Tsuki.Objs
             }
         }
 
+        public void SpawnLight()
+        {
+            if (WeatherManager.Instance.CurrentSeason.season != SeasonType.Summer) return;
+            Vector3 pos = _randomPos.GetCenterPos();
+            Object.Instantiate(_objManager.lights[Random.Range(0, _objManager.lights.Count)], pos,
+                Quaternion.Euler(0, 0, Random.Range(0, 90)));
+        }
+
         public IEnumerator DelaySpawn(float interval, Action spawnAction)
         {
             while (true)
@@ -146,7 +154,7 @@ namespace Tsuki.Objs
                 spawnAction();
             }
         }
-        
+
         public IEnumerator DelaySpawnHurricane()
         {
             while (true)

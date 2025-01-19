@@ -96,5 +96,10 @@ namespace Tsuki.Objs
             vector.z = 0;
             return vector;
         }
+
+        public Vector3 GetCenterPos()
+        {
+            return GetWordPoint(new Vector3(_screenWidth / 2, _screenHeight / 2, 0));
+        }
     }
 }
