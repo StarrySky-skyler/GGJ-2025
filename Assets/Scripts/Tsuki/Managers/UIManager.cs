@@ -18,8 +18,10 @@ namespace Tsuki.Managers
         public static UIManager Instance { get; private set; }
 
         [Header("UI配置")] public Text txtWeather;
-        public Text txtSeason;
         public Text txtScore;
+        public GameObject clockPointer;
+
+        private float _timer;
 
         private void Awake()
         {
@@ -29,37 +31,27 @@ namespace Tsuki.Managers
         private void Start()
         {
             // 注册事件
-            WeatherManager.Instance.OnSeasonChanged += UpdateSeasonUI;
             GameManager.Instance.OnScoreChanged += UpdateScoreUI;
         }
 
         private void Update()
         {
+            _timer += Time.deltaTime;
+            if (_timer >= WeatherManager.Instance.WeatherData.seasonDuration * 4) _timer = 0;
             UpdateWeatherUI();
+            UpdateSeasonUI();
         }
 
         /// <summary>
         /// 更新季节UI
         /// </summary>
         /// <param name="season"></param>
-        private void UpdateSeasonUI(Season_SO season)
+        private void UpdateSeasonUI()
         {
-            txtSeason.text = "当前季节：";
-            switch (season.season)
-            {
-                case SeasonType.Spring:
-                    txtSeason.text += "春";
-                    break;
-                case SeasonType.Summer:
-                    txtSeason.text += "夏";
-                    break;
-                case SeasonType.Autumn:
-                    txtSeason.text += "秋";
-                    break;
-                case SeasonType.Winter:
-                    txtSeason.text += "冬";
-                    break;
-            }
+            float p = WeatherManager.Instance.WeatherData.seasonDuration * 4;
+            p = _timer / p;
+            p *= 360;
+            clockPointer.transform.localRotation = Quaternion.Euler(0, 0, p);
         }
 
         /// <summary>

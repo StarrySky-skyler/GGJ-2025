@@ -15,6 +15,6 @@ MonoBehaviour:
   season: 2
   hurricaneWeight: 0
   rainWeight: 23
-  fogWeight: 32
+  fogWeight: 17
   lightningWeight: 16
   hailWeight: 0

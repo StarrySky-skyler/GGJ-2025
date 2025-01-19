@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: WinterConfig
   m_EditorClassIdentifier: 
   season: 3
-  hurricaneWeight: 15
-  rainWeight: 28
-  fogWeight: 67
+  hurricaneWeight: 32
+  rainWeight: 37
+  fogWeight: 19
   lightningWeight: 12
   hailWeight: 50
