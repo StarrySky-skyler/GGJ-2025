@@ -1,30 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c91bff7916377e4fae13b1ea5f92fef, type: 3}
-  m_Name: WeatherConfig
-  m_EditorClassIdentifier: 
-  lightningWarningTime: 1.8
-  hailSpeed: 6.1
-  hurricaneDuration: 3.31
-  rainDuration: 7.25
-  fogDuration: 2.99
-  lightningDuration: 5.02
-  hailDuration: 3.83
-  seasonDuration: 14.9
-  weatherAddInterval: 3
-  hurricaneSpawnInterval: 2
-  lightningSpawnInterval: 2
-  hailSpawnInterval: 2
-  springData: {fileID: 11400000, guid: c06c2eb7bc08ce941966ff6627ac1bde, type: 2}
-  summerData: {fileID: 11400000, guid: c82a034d116831940aa67ae3c517823c, type: 2}
-  autumnData: {fileID: 11400000, guid: 74aa5e9dccea34a41b149ff07b263a99, type: 2}
-  winterData: {fileID: 11400000, guid: 8bd5c1e9f93ded44295e9e562cf664f1, type: 2}
+version https://git-lfs.github.com/spec/v1
+oid sha256:40ca2db1ee6238a48859acac86d0505e967bbb6e37db379f7388f2ddf9b3cd23
+size 1015

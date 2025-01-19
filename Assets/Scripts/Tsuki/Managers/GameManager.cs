@@ -54,6 +54,11 @@ namespace Tsuki.Managers
             StartCoroutine(AddRandomSeason());
         }
 
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape)) Screen.fullScreen = !Screen.fullScreen;
+        }
+
         private IEnumerator SwitchSeason()
         {
             while (true)
