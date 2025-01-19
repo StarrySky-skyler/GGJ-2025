@@ -12,7 +12,6 @@ using UnityEngine;
 
 namespace Tsuki.Objs
 {
-    // TODO: 灌木丛
     public class PickObj : AutoDestoryObj
     {
         public float speed;

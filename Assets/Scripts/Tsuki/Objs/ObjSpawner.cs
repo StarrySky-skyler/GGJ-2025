@@ -118,6 +118,26 @@ namespace Tsuki.Objs
             Object.Instantiate(_objManager.songShu, pos, Quaternion.identity);
         }
 
+        public void SpawnBush()
+        {
+            Vector3 pos = _randomPos.GetRandomRabbitPos();
+            switch (WeatherManager.Instance.CurrentSeason.season)
+            {
+                case SeasonType.Spring:
+                    Object.Instantiate(_objManager.springBush, pos, Quaternion.identity);
+                    break;
+                case SeasonType.Summer:
+                    Object.Instantiate(_objManager.summerBush, pos, Quaternion.identity);
+                    break;
+                case SeasonType.Autumn:
+                    Object.Instantiate(_objManager.autumnBush, pos, Quaternion.identity);
+                    break;
+                case SeasonType.Winter:
+                    Object.Instantiate(_objManager.winterBush, pos, Quaternion.identity);
+                    break;
+            }
+        }
+
         public IEnumerator DelaySpawn(float interval, Action spawnAction)
         {
             while (true)

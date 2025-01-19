@@ -425,8 +425,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -5481538279027424929, guid: e339679f8f38e5646b18ff8a3d330f20, type: 2}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_audioClip: {fileID: 8300000, guid: 20ef0eb6317eb7349a0789e0d6691879, type: 3}
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -637,6 +637,10 @@ MonoBehaviour:
   - {fileID: 1294632697322186166, guid: 24a0bbc9e6c334e41888aa614fb661b8, type: 3}
   - {fileID: 2660657899710767972, guid: 9f12474003497b64eba842d979d4986e, type: 3}
   songShu: {fileID: 4711861860402470048, guid: 9a9a1e88119c9b542994a47184c9e5c1, type: 3}
+  springBush: {fileID: 8613562568968444549, guid: f747762b175a3334abff8a8b20ae5588, type: 3}
+  summerBush: {fileID: 3844812188374040249, guid: 5f91a98189657704b996830d03b175e2, type: 3}
+  autumnBush: {fileID: 1295531745679007172, guid: 280994e50f0a326479fa80839d2cd2f1, type: 3}
+  winterBush: {fileID: 3731057492954785063, guid: 0d3f8cef953f6d842a13c4bfe161f411, type: 3}
   spawnInterval: 1
   fengCheSpawnInterval: 3
   tengWanSpawnInterval: 3
@@ -644,6 +648,7 @@ MonoBehaviour:
   fishSpawnInterval: 4.72
   rabbitSpawnInterval: 4.09
   songShuSpawnInterval: 3.57
+  bushSpawnInterval: 2.74
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
