@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2621966104413795465}
   - component: {fileID: 3216854503951752516}
   - component: {fileID: 3257655227839298488}
+  - component: {fileID: 2498568339986152626}
   m_Layer: 0
   m_Name: Leaf
   m_TagString: Leaf
@@ -30,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.33, y: 3.81, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3.2799, y: 3.2799, z: 3.2799}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8c3e999be1d4788438b45077c033220e, type: 3}
+  m_Sprite: {fileID: -2027882479, guid: 069869147df9aea4192f259d974a4639, type: 3}
   m_Color: {r: 0.8867924, g: 0.7077624, b: 0.13664393, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -143,21 +144,21 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0149003565, y: -0.006165594}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.24, y: 0.28}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.36845052, y: 0.2553375}
   m_EdgeRadius: 0
 --- !u!114 &3257655227839298488
 MonoBehaviour:
@@ -173,3 +174,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeTime: 10
   speed: 3
+--- !u!95 &2498568339986152626
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5720135483628702397}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b3fb60ea693059948a0796a6d2db5cd9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

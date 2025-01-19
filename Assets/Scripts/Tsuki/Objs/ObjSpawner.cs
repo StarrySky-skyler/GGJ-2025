@@ -64,7 +64,8 @@ namespace Tsuki.Objs
         private void SpawnHail()
         {
             Vector3 pos = _randomPos.GetRandomTopPos();
-            Object.Instantiate(_objManager.hail, pos, Quaternion.identity);
+            GameObject h = _objManager.hail[Random.Range(0, _objManager.hail.Count)];
+            Object.Instantiate(h, pos, Quaternion.identity);
         }
 
         private void SpawnLightning()
@@ -90,7 +91,7 @@ namespace Tsuki.Objs
 
         private void SpawnBird()
         {
-            Vector3 pos = _randomPos.GetRandomRightPos();
+            Vector3 pos = _randomPos.GetRandomRightHalfTopPos();
             Object.Instantiate(_objManager.bird, pos, Quaternion.identity);
             AudioManager.Instance.PlaySoundEffects(WeatherType.Hurricane);
         }

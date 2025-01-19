@@ -32,16 +32,11 @@ namespace Tsuki.Weather
             _damageArea.SetActive(true);
             _warningArea.SetActive(false);
         }
-        
+
         private void Awake()
         {
             _damageArea = transform.Find("DamageArea").gameObject;
             _warningArea = transform.Find("WarnArea").gameObject;
-        }
-
-        private void Start()
-        {
-            Destroy(gameObject, WeatherManager.Instance.WeatherData.lightningDuration);
         }
 
         private void Update()
@@ -51,7 +46,6 @@ namespace Tsuki.Weather
             {
                 ActiveDamageArea();
                 _triggered = true;
-                Destroy(gameObject, 0.3f);
             }
 
             if (_triggered && _collided && !_damaged)
@@ -69,6 +63,14 @@ namespace Tsuki.Weather
         private void OnTriggerEnter2D(Collider2D other)
         {
             _collided = other.CompareTag("Player");
+        }
+
+        private void OnTriggerStay2D(Collider2D other)
+        {
+            if (other.CompareTag("Player"))
+            {
+                _collided = true;
+            }
         }
 
         private void OnTriggerExit2D(Collider2D other)

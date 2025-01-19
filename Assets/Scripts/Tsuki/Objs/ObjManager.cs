@@ -8,6 +8,7 @@
 
 using Tsuki.Weather;
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace Tsuki.Objs
 {
@@ -23,7 +24,7 @@ namespace Tsuki.Objs
         public GameObject leaf;
         public GameObject snow;
         public GameObject hurricane;
-        public GameObject hail;
+        public List<GameObject> hail;
         public GameObject lightning;
         public GameObject fengChe;
         public GameObject tengWan;

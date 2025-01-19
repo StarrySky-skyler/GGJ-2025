@@ -53,6 +53,18 @@ namespace Tsuki.Objs
         }
 
         /// <summary>
+        /// 获取屏幕右半部分顶部随机点
+        /// </summary>
+        /// <returns></returns>
+        public Vector3 GetRandomRightHalfTopPos()
+        {
+            var randomPos = new Vector3(_screenWidth, Random.Range(_screenHeight / 2, _screenHeight), 0);
+            randomPos = Camera.main.ScreenToWorldPoint(randomPos);
+            randomPos.z = 0;
+            return randomPos;
+        }
+
+        /// <summary>
         /// 获取顶部随机点
         /// </summary>
         /// <returns></returns>

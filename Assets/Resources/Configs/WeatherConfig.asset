@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c91bff7916377e4fae13b1ea5f92fef, type: 3}
   m_Name: WeatherConfig
   m_EditorClassIdentifier: 
-  lightningWarningTime: 2
+  lightningWarningTime: 1.8
   hailSpeed: 6.1
-  hurricaneDuration: 3
-  rainDuration: 6.38
-  fogDuration: 5
-  lightningDuration: 3.72
+  hurricaneDuration: 3.31
+  rainDuration: 7.25
+  fogDuration: 5.98
+  lightningDuration: 5.02
   hailDuration: 3.83
   seasonDuration: 14.9
   weatherAddInterval: 3

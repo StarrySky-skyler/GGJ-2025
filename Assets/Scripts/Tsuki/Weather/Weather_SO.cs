@@ -14,7 +14,7 @@ namespace Tsuki.Weather
     public class Weather_SO : ScriptableObject
     {
         [Header("配置数据")]
-        public float lightningWarningTime; // 闪电预警时间
+        [Range(1F, 10F)] public float lightningWarningTime; // 闪电预警时间
         [Range(0.1F, 10F)]
         public float hailSpeed;     // 冰雹下落速度
         [Header("持续时间")]
