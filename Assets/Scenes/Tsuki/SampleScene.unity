@@ -750,20 +750,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -6709374319324000561, guid: 67e39bdf991a9264dbedca321e2d0767, type: 3}
-      propertyPath: m_Radius
-      value: 1.1997447
-      objectReference: {fileID: 0}
-    - target: {fileID: -6709374319324000561, guid: 67e39bdf991a9264dbedca321e2d0767, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3536115097188340202, guid: 67e39bdf991a9264dbedca321e2d0767, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.72928625
-      objectReference: {fileID: 0}
-    - target: {fileID: 3536115097188340202, guid: 67e39bdf991a9264dbedca321e2d0767, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.72928625
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3536115097188340202, guid: 67e39bdf991a9264dbedca321e2d0767, type: 3}
       propertyPath: m_LocalPosition.x
@@ -806,16 +794,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3586068350304021019, guid: 67e39bdf991a9264dbedca321e2d0767, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586068350304021019, guid: 67e39bdf991a9264dbedca321e2d0767, type: 3}
+      propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: -1096304310, guid: 42b79f0244b1a8b48801b8bd4ed7d888, type: 3}
     - target: {fileID: 6682817561957747538, guid: 67e39bdf991a9264dbedca321e2d0767, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7796050513418975629, guid: 67e39bdf991a9264dbedca321e2d0767, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7796050513418975629, guid: 67e39bdf991a9264dbedca321e2d0767, type: 3}
       propertyPath: m_GravityScale
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

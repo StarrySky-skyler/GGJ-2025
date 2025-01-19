@@ -4,49 +4,49 @@ using UnityEngine;
 
 public class BubbleDeath : MonoBehaviour
 {
-    // рЩсцещещ╣дRigidbody 2DвИ╪Чё╛╥╫╠Ц╨СпЬ╡ывВ
+    // О©╫О©╫О©╫О©╫О©╫О©╫О©╫щ╣О©╫Rigidbody 2DО©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫
     private Rigidbody2D rb;
 
-    // пе╥БPrefabрЩсц
+    // О©╫е╥О©╫PrefabО©╫О©╫О©╫О©╫
     public GameObject envelopePrefab;
 
     void Start()
     {
-        // тзсно╥©╙й╪й╠╩Ях║Rigidbody 2DвИ╪Ч
+        // О©╫О©╫О©╫О©╫о╥О©╫О©╫й╪й╠О©╫О©╫х║Rigidbody 2DО©╫О©╫О©╫
         rb = GetComponent<Rigidbody2D>();
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // ╪Л╡Бещещйг╥ЯсК╣ьцФ╩Руо╟╜нО╥╒иЗеЖв╡
+        // О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫г╥О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫о╟О©╫О©╫О╥╒О©╫О©╫О©╫О©╫в╡
         if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Obstacle"))
         {
-            // хГ╧ШеЖв╡╣╫╣ьцФ╩Руо╟╜нОё╛ж╢ппкюмЖ╡ывВ
+            // О©╫О©╫О©╫О©╫О©╫в╡О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫о╟О©╫О©╫Оё╛ж╢О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫
             Die();
         }
     }
 
     void Die()
     {
-        // ©ирттзуБюОлМ╪скюмЖп╖╧Шё╛╠ххГ╡╔╥екюмЖ╤╞╩╜║╒╥╒ЁЖкюмЖрТп╖╣х
-        // юЩхГё╛╡╔╥ер╩╦Ж╪Р╣╔╣даёвсп╖╧Шю╢дёдБещещффая
+        // О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫п╖О©╫О©╫О©╫О©╫О©╫О©╫О©╫Г╡╔О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫п╖О©╫О©╫
+        // О©╫О©╫О©╫Гё╛О©╫О©╫О©╫О©╫р╩О©╫О©╫О©╫Р╣╔╣О©╫О©╫О©╫О©╫О©╫п╖О©╫О©╫О©╫О©╫дёО©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫
         ParticleSystem ps = GetComponent<ParticleSystem>();
         if (ps != null)
         {
             ps.Play();
         }
 
-        // ╡╔╥екюмЖрТп╖ё╗пХр╙лАг╟тзоНд©жп╣╪хКрТп╖нд╪Чё╛╡╒╢╢╫╗р╩╦ЖAudioSourceвИ╪Чё╘
+        // О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫п╖О©╫О©╫О©╫О©╫р╙О©╫О©╫г╟О©╫О©╫О©╫О©╫д©О©╫п╣О©╫О©╫О©╫О©╫О©╫п╖О©╫д╪О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫р╩О©╫О©╫AudioSourceО©╫О©╫О©╫О©╫О©╫
         AudioSource audioSource = GetComponent<AudioSource>();
         if (audioSource != null && audioSource.clip != null)
         {
             audioSource.Play();
         }
 
-        // ╣ТбДпе╥Б
+        // О©╫О©╫О©╫О©╫О©╫е╥О©╫
         Instantiate(envelopePrefab, transform.position, Quaternion.identity);
 
-        // оЗ╩ыещещGameObjectё╛й╧фД╢сЁ║╬╟жпоШй╖
+        // О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫GameObjectО©╫О©╫й╧О©╫О©╫сЁО©╫О©╫О©╫О©╫О©╫О©╫О©╫й╖
         Destroy(gameObject);
     }
 }

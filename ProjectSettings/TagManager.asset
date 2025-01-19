@@ -11,6 +11,8 @@ TagManager:
   - Flower
   - Leaf
   - Snow
+  - Obstacle
+  - Ground
   layers:
   - Default
   - TransparentFX

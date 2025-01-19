@@ -18,5 +18,11 @@ namespace Tsuki.Objs
             if (!other.CompareTag("Player")) return;
             // TODO: 玩家死亡
         }
+
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            if (!other.gameObject.CompareTag("Player")) return;
+            // TODO: 玩家死亡
+        }
     }
 }
