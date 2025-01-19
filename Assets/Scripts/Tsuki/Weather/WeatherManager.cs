@@ -154,7 +154,6 @@ namespace Tsuki.Weather
 
                     break;
                 case NotifyCollectionChangedAction.Reset:
-                    // TODO: 重置天气逻辑，调用Clear方法触发
                     OnWeatherCleared?.Invoke();
                     break;
             }

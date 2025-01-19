@@ -69,7 +69,6 @@ namespace Tsuki.Weather
         /// <param name="weatherType"></param>
         public void HandleRemoveWeather(WeatherType weatherType)
         {
-            // TODO: 移除天气
             switch (weatherType)
             {
                 case WeatherType.Hurricane:
@@ -110,7 +109,6 @@ namespace Tsuki.Weather
             {
                 case SeasonType.Spring:
                     Debug.Log("季节切换为春天");
-                    // TODO: 掉落花瓣
                     break;
                 case SeasonType.Summer:
                     Debug.Log("季节切换为夏天");
@@ -118,11 +116,9 @@ namespace Tsuki.Weather
                     break;
                 case SeasonType.Autumn:
                     Debug.Log("季节切换为秋天");
-                    // TODO: 掉落落叶
                     break;
                 case SeasonType.Winter:
                     Debug.Log("季节切换为冬天");
-                    // TODO: 掉落雪花
                     break;
                 default:
                     Debug.LogError($"未知的季节类型{seasonType}");
