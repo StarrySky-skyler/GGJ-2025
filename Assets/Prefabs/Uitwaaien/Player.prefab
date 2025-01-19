@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3536115097188340202}
   - component: {fileID: 3586068350304021019}
-  - component: {fileID: 1692874830872301172}
   - component: {fileID: 7796050513418975629}
-  - component: {fileID: -2715102286082200204}
-  - component: {fileID: 5963577744946394523}
   - component: {fileID: -6709374319324000561}
+  - component: {fileID: 7465081878695714421}
+  - component: {fileID: 7463588567055023686}
+  - component: {fileID: -6813458100369550857}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -78,32 +78,17 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -162765064, guid: ca138f88f43fd3849a617f5526435f23, type: 3}
+  m_Sprite: {fileID: 820409734, guid: 42b79f0244b1a8b48801b8bd4ed7d888, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 3.05, y: 1.75}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1692874830872301172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6682817561957747538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad7cbb08caf07a1438a92b593c370289, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  score: 0
-  bubbleCapacity: 10
 --- !u!50 &7796050513418975629
 Rigidbody2D:
   serializedVersion: 4
@@ -131,35 +116,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-2715102286082200204
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6682817561957747538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98162ea8fdfb4514caea765f2a6b552a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  jumpForce: 10
---- !u!114 &5963577744946394523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6682817561957747538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a856d3b3924278542a372e2c911532b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bubblePrefab: {fileID: 0}
-  fallSpeed: 5
-  jumpSpeed: 10
 --- !u!58 &-6709374319324000561
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -195,3 +151,45 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &7465081878695714421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6682817561957747538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f87cdc9e78ef75b46afc4962c97602f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  score: 0
+  bubbleCapacity: 10
+--- !u!114 &7463588567055023686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6682817561957747538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8350fe7dc8352cd4abb89a99c81aa680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  jumpForce: 10
+--- !u!114 &-6813458100369550857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6682817561957747538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a94883d06d9f5ea4584aaefa1ce5a621, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  envelopePrefab: {fileID: 6569987571868216567, guid: fca7cd970ffaab64d84cef0889dab2b0, type: 3}

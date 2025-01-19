@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PlayerControlller : MonoBehaviour
 {
-    public float speed = 5.0f; //Íæ¼ÒÒÆ¶¯ËÙ¶È
-    public int score = 0;//Íæ¼ÒµÃ·Ö
-    public int bubbleCapacity = 10;//ÅÝÅÝ³ÐÔØÁ¿
+    public float speed = 5.0f; //ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½Ù¶ï¿½
+    public int score = 0;//ï¿½ï¿½ÒµÃ·ï¿½
+    public int bubbleCapacity = 10;//ï¿½ï¿½ï¿½Ý³ï¿½ï¿½ï¿½ï¿½ï¿½
 
-    private Rigidbody rb;
+    private Rigidbody2D rb;
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -20,7 +20,7 @@ public class PlayerControlller : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+        Vector3 movement = new Vector3(moveHorizontal, moveVertical, 0.0f);
         rb.AddForce(movement * speed);
     }
 
@@ -43,7 +43,7 @@ public class PlayerControlller : MonoBehaviour
         if (collision.gameObject.CompareTag("Obstacle"))
         {
             Debug.Log("Player died!");
-            // ÖØÖÃÍæ¼ÒÎ»ÖÃ»òÓÎÏ·½áÊøÂß¼­
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½Ã»ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½
         }
     }
 }
