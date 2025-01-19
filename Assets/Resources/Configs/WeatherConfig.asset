@@ -16,7 +16,7 @@ MonoBehaviour:
   hailSpeed: 6.1
   hurricaneDuration: 3.31
   rainDuration: 7.25
-  fogDuration: 5.98
+  fogDuration: 2.99
   lightningDuration: 5.02
   hailDuration: 3.83
   seasonDuration: 14.9

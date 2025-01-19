@@ -8,6 +8,7 @@
 
 using System;
 using System.Collections.Generic;
+using DG.Tweening;
 using Tsuki.Weather;
 using UnityEngine;
 using UnityEngine.UI;
@@ -32,14 +33,18 @@ namespace Tsuki.UI
 
         private void ChangeBg(Season_SO season)
         {
-            _img.sprite = season.season switch
+            _img.DOFade(0, 1f).OnComplete(() =>
             {
-                SeasonType.Spring => bgList[0],
-                SeasonType.Summer => bgList[1],
-                SeasonType.Autumn => bgList[2],
-                SeasonType.Winter => bgList[3],
-                _ => _img.sprite
-            };
+                _img.sprite = season.season switch
+                {
+                    SeasonType.Spring => bgList[0],
+                    SeasonType.Summer => bgList[1],
+                    SeasonType.Autumn => bgList[2],
+                    SeasonType.Winter => bgList[3],
+                    _ => _img.sprite
+                };
+                _img.DOFade(1, 1f);
+            });
         }
     }
 }
